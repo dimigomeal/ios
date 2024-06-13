@@ -23,8 +23,11 @@
 		FA116ED92C19DB3B003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				BackdropBlurView.swift,
 				ContentView.swift,
+				MealView.swift.swift,
 				SettingsView.swift,
+				TriggerButton.swift,
 			);
 			target = FA7706C42C193ACA008140A9 /* dimigomeal */;
 		};
@@ -42,9 +45,11 @@
 		FA43F0962C1A85DC004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				MealAPIResponse.swift,
 				MealModel.xcdatamodeld,
+				MealType.swift,
 				PersistenceController.swift,
-				ThemeModel.swift,
+				Theme.swift,
 			);
 			target = FA7706C42C193ACA008140A9 /* dimigomeal */;
 		};

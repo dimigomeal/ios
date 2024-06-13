@@ -8,140 +8,6 @@
 import SwiftUI
 import CoreData
 
-struct BackdropView: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIVisualEffectView {
-        let view = UIVisualEffectView()
-        let blur = UIBlurEffect()
-        let animator = UIViewPropertyAnimator()
-        animator.addAnimations { view.effect = blur }
-        animator.fractionComplete = 0
-        animator.stopAnimation(false)
-        animator.finishAnimation(at: .current)
-        return view
-    }
-    
-    func updateUIView(_ uiView: UIVisualEffectView, context: Context) { }
-}
-
-struct BackdropBlurView: View {
-    let radius: CGFloat
-    
-    @ViewBuilder
-    var body: some View {
-        BackdropView()
-            .blur(radius: radius, opaque: true)
-            .background(Color("ViewBackground"))
-            .overlay(
-                RoundedRectangle(cornerRadius: 14)
-                    .strokeBorder(Color("ViewBorder"), lineWidth: 3)
-            )
-            .cornerRadius(14)
-            .shadow(color: Color.black.opacity(0.05), radius: 14, x: 0, y: 0)
-    }
-}
-
-enum MealType {
-    case breakfast
-    case lunch
-    case dinner
-}
-
-struct MealView: View {
-    let type: MealType
-    let meal: String?
-    
-    var body: some View {
-        VStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    HStack(spacing: 8) {
-                        Image(type == .breakfast ? "BreakfastIcon" : type == .lunch ? "LunchIcon" : "DinnerIcon")
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                        Text(type == .breakfast ? "아침" : type == .lunch ? "점심" : "저녁")
-                            .foregroundColor(Color("Color"))
-                            .font(.custom("SUIT-Bold", size: 32))
-                        Spacer()
-                    }
-                    VStack(alignment: .leading, spacing: 12) {
-                        ForEach("\(meal ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
-                            HStack {
-                                Text("•")
-                                    .foregroundColor(Color("Color"))
-                                    .font(.custom("SUIT-Medium", size: 20))
-                                Text(item)
-                                    .foregroundColor(Color("Color"))
-                                    .font(.custom("SUIT-Medium", size: 20))
-                            }
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .padding(17)
-            }
-            .padding(3)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .background(BackdropBlurView(radius: 48))
-        }
-        .padding(.horizontal, 16)
-        .frame(width: UIScreen.main.bounds.width)
-        .frame(maxHeight: .infinity)
-    }
-}
-
-struct TriggerButton: PrimitiveButtonStyle {
-    func makeBody(configuration: PrimitiveButtonStyle.Configuration) -> some View {
-        MyButton(configuration: configuration)
-    }
-
-    struct MyButton: View {
-        @State private var pressed = false
-        @State private var skip = false
-
-        let configuration: PrimitiveButtonStyle.Configuration
-        
-        var body: some View {
-            GeometryReader { proxy in
-                return configuration.label
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 56)
-                    .background(BackdropBlurView(radius: 20))
-                    .opacity(pressed ? 0.6 : 1)
-                    .shadow(color: Color.black.opacity(pressed ? 0.2 : 0.05), radius: 14, x: 0, y: 0)
-                    .scaleEffect(pressed ? 1.02 : 1)
-                    .simultaneousGesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged { value in
-                                if value.location.x < 0 || value.location.x > proxy.size.width || value.location.y < 0 || value.location.y > proxy.size.height {
-                                    skip = true
-                                } else {
-                                    skip = false
-                                }
-                            }
-                    )
-                    .onLongPressGesture(minimumDuration: 0, pressing: { value in
-                        withAnimation(.easeInOut(duration: 0.1)) {
-                            pressed = value
-                        }
-                    }, perform: {
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    })
-                    .onChange(of: pressed) { _, value in
-                        if !value {
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                            
-                            if !skip {
-                                configuration.trigger()
-                                skip = false
-                            }
-                        }
-                    }
-            }
-            .frame(height: 56)
-        }
-    }
-}
-
 struct ContentView: View {
     @State private var isShowingDetailView = false
     @State private var offset = CGFloat.zero
@@ -285,7 +151,6 @@ struct ContentView: View {
         if let meal = meal {
             self.meal = meal
         } else {
-            print("없다 이놈아")
             self.meal = nil
             isLoading = true
         }
@@ -365,34 +230,10 @@ struct ContentView: View {
     }
 }
 
-extension DateFormatter {
-    static let apiDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-}
-
-struct MealAPIResponse: Codable {
-    let breakfast: String
-    let date: String
-    let dinner: String
-    let lunch: String
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.shared.container.viewContext
         ContentView()
             .environment(\.managedObjectContext, context)
     }
-}
-
-#Preview {
-    @Previewable @AppStorage("theme/color") var colorTheme = ColorTheme.system
-    
-    NavigationView {
-        ContentView()
-    }
-    .preferredColorScheme(colorTheme.scheme)
 }
