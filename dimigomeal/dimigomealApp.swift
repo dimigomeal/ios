@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct dimigomealApp: App {
+    @AppStorage("theme/color") private var colorTheme = ColorTheme.system
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+            }
+            .preferredColorScheme(colorTheme.scheme)
         }
     }
 }
