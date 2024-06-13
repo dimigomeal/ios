@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BackdropView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIVisualEffectView {
@@ -47,11 +48,12 @@ enum MealType {
 
 struct MealView: View {
     let type: MealType
+    let meal: String?
     
     var body: some View {
         VStack {
             ScrollView {
-                VStack(spacing: 16) {
+                VStack(spacing: 20) {
                     HStack(spacing: 8) {
                         Image(type == .breakfast ? "BreakfastIcon" : type == .lunch ? "LunchIcon" : "DinnerIcon")
                             .resizable()
@@ -61,8 +63,21 @@ struct MealView: View {
                             .font(.custom("SUIT-Bold", size: 32))
                         Spacer()
                     }
+                    VStack(alignment: .leading, spacing: 12) {
+                        ForEach("\(meal ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
+                            HStack {
+                                Text("•")
+                                    .foregroundColor(Color("Color"))
+                                    .font(.custom("SUIT-Medium", size: 20))
+                                Text(item)
+                                    .foregroundColor(Color("Color"))
+                                    .font(.custom("SUIT-Medium", size: 20))
+                            }
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .padding(13)
+                .padding(17)
             }
             .padding(3)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -80,7 +95,6 @@ struct TriggerButton: PrimitiveButtonStyle {
     }
 
     struct MyButton: View {
-        @State var size: CGSize = .zero
         @State private var pressed = false
         @State private var skip = false
 
@@ -89,9 +103,6 @@ struct TriggerButton: PrimitiveButtonStyle {
         var body: some View {
             GeometryReader { proxy in
                 return configuration.label
-                    .onAppear {
-                        size = proxy.size
-                    }
                     .frame(maxWidth: .infinity)
                     .frame(height: 56)
                     .background(BackdropBlurView(radius: 20))
@@ -101,7 +112,7 @@ struct TriggerButton: PrimitiveButtonStyle {
                     .simultaneousGesture(
                         DragGesture(minimumDistance: 0)
                             .onChanged { value in
-                                if value.location.x < 0 || value.location.x > size.width || value.location.y < 0 || value.location.y > size.height {
+                                if value.location.x < 0 || value.location.x > proxy.size.width || value.location.y < 0 || value.location.y > proxy.size.height {
                                     skip = true
                                 } else {
                                     skip = false
@@ -135,6 +146,11 @@ struct ContentView: View {
     @State private var isShowingDetailView = false
     @State private var offset = CGFloat.zero
     
+    @State private var targetDate = Date()
+    @State private var isLoading = false
+    @State private var meal: MealEntity? = nil
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @AppStorage("theme/background") private var backgroundTheme = BackgroundTheme.dynamic
     
     var body: some View {
@@ -143,32 +159,31 @@ struct ContentView: View {
                 GeometryReader { geometry in
                     VStack(spacing: 16) {
                         HStack(spacing: 16) {
-                            Group {
-                                Button(action: { }) {
-                                    VStack {
-                                        Text("6월 12일 수요일")
-                                            .foregroundColor(Color("Color"))
-                                            .font(.custom("SUIT-Bold", size: 20))
-                                    }
+                            Button(action: today) {
+                                VStack {
+                                    Text("\(formattedDateString(targetDate))")
+                                        .foregroundColor(Color("Color"))
+                                        .font(.custom("SUIT-Bold", size: 20))
                                 }
-                                .frame(maxWidth: .infinity)
-                                NavigationLink(destination: SettingsView()) {
-                                    VStack {
-                                        Image("Menu")
-                                            .resizable()
-                                            .frame(width: 32, height: 32)
-                                    }
-                                }
-                                .frame(width: 56)
                             }
                             .buttonStyle(TriggerButton())
+                            .frame(maxWidth: .infinity)
+                            NavigationLink(destination: SettingsView()) {
+                                VStack {
+                                    Image("Menu")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
+                                }
+                            }
+                            .buttonStyle(TriggerButton())
+                            .frame(width: 56)
                         }
                         .padding(.horizontal, 16)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 0) {
-                                MealView(type: .breakfast)
-                                MealView(type: .lunch)
-                                MealView(type: .dinner)
+                                MealView(type: .breakfast, meal: meal?.breakfast)
+                                MealView(type: .lunch, meal: meal?.lunch)
+                                MealView(type: .dinner, meal: meal?.dinner)
                             }
                             .background(GeometryReader { proxy -> Color in
                                 DispatchQueue.main.async {
@@ -182,20 +197,19 @@ struct ContentView: View {
                         .frame(maxHeight: .infinity)
                         .scrollTargetBehavior(.paging)
                         HStack(spacing: 16) {
-                            Group {
-                                Button(action: { }) {
-                                    VStack {
-                                        Image("Left")
-                                            .resizable()
-                                            .frame(width: 32, height: 32)
-                                    }
+                            Button(action: previous) {
+                                VStack {
+                                    Image("Left")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
                                 }
-                                Button(action: { }) {
-                                    VStack {
-                                        Image("Right")
-                                            .resizable()
-                                            .frame(width: 32, height: 32)
-                                    }
+                            }
+                            .buttonStyle(TriggerButton())
+                            Button(action: next) {
+                                VStack {
+                                    Image("Right")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
                                 }
                             }
                             .buttonStyle(TriggerButton())
@@ -233,7 +247,144 @@ struct ContentView: View {
                 }
                     .edgesIgnoringSafeArea(.all)
             )
+            .onAppear {
+                update(for: targetDate)
+            }
+            .onChange(of: targetDate) { _, newDate in
+                update(for: newDate)
+            }
         }
+    }
+    
+    private func formattedDateString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월 d일 EEEE"
+        return formatter.string(from: date)
+    }
+    
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
+    
+    private func today() {
+        targetDate = Date()
+    }
+    
+    private func previous() {
+        targetDate = Calendar.current.date(byAdding: .day, value: -1, to: targetDate)!
+    }
+    
+    private func next() {
+        targetDate = Calendar.current.date(byAdding: .day, value: 1, to: targetDate)!
+    }
+    
+    private func update(for date: Date) {
+        let meal = fetchMeal(for: formattedDate(date))
+        if let meal = meal {
+            self.meal = meal
+        } else {
+            print("없다 이놈아")
+            self.meal = nil
+            isLoading = true
+        }
+        
+        fetchMealFromAPI(for: formattedDate(date))
+    }
+    
+    private func fetchMealFromAPI(for date: String) {
+        let url = URL(string: "https://api.디미고급식.com/week?date=\(date)")!
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                isLoading = false
+            }
+            guard let data = data, error == nil else {
+                print("Failed to fetch data: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            do {
+                let meals = try JSONDecoder().decode([MealAPIResponse].self, from: data)
+                for mealData in meals {
+                    saveMeal(mealData)
+                }
+                
+                DispatchQueue.main.async {
+                    self.meal = fetchMeal(for: date)
+                }
+            } catch {
+                print("Failed to decode JSON: \(error)")
+            }
+        }.resume()
+    }
+    
+    private func saveMeal(_ mealData: MealAPIResponse) {
+        if let meal = fetchMeal(for: mealData.date) {
+            meal.breakfast = mealData.breakfast
+            meal.lunch = mealData.lunch
+            meal.dinner = mealData.dinner
+            do {
+                try viewContext.save()
+            } catch {
+                print(meal)
+                print("Failed to update meal: \(error)")
+            }
+        } else {
+            let meal = MealEntity(context: viewContext)
+            meal.date = mealData.date
+            meal.breakfast = mealData.breakfast
+            meal.lunch = mealData.lunch
+            meal.dinner = mealData.dinner
+            
+            do {
+                try viewContext.save()
+            } catch {
+                print(meal)
+                print("Failed to save meal: \(error)")
+            }
+        }
+    }
+
+    private func fetchMeal(for date: String) -> MealEntity? {
+        let request: NSFetchRequest<MealEntity> = MealEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "date == %@", date as CVarArg)
+        
+        do {
+            let results = try viewContext.fetch(request)
+            if let meal = results.first {
+                return meal
+            } else {
+                return nil
+            }
+        } catch {
+            print("Failed to fetch meal from Core Data: \(error)")
+            return nil
+        }
+    }
+}
+
+extension DateFormatter {
+    static let apiDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+}
+
+struct MealAPIResponse: Codable {
+    let breakfast: String
+    let date: String
+    let dinner: String
+    let lunch: String
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let context = PersistenceController.shared.container.viewContext
+        ContentView()
+            .environment(\.managedObjectContext, context)
     }
 }
 

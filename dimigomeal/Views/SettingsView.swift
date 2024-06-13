@@ -86,13 +86,15 @@ struct ColorThemeSettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Picker(selection: $colorTheme, label: Text("색상 테마")) {
-                    ForEach(ColorTheme.allCases, id: \.self) {
-                        Text($0.rawValue)
+                Section(footer: Text("시스템 설정은 기기 설정에 따라 화면 모드를 자동으로 전환합니다.\n\n라이트 모드는 변하지 않는 라이트 화면 모드를 제공합니다.\n\n다크 모드를 선택하면 어두운 화면 모드를 제공하여 앱에서 제공하는 정보가 쉽게 눈에 띄도록 합니다.")) {
+                    Picker(selection: $colorTheme, label: Text("색상 테마")) {
+                        ForEach(ColorTheme.allCases, id: \.self) {
+                            Text($0.rawValue)
+                        }
                     }
+                    .labelsHidden()
+                    .pickerStyle(.inline)
                 }
-                .labelsHidden()
-                .pickerStyle(.inline)
             }
             .navigationBarTitle("색상 테마")
             .navigationBarTitleDisplayMode(.inline)
@@ -106,9 +108,11 @@ struct BackgroundThemeSettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Picker(selection: $backgroundTheme, label: Text("배경 테마")) {
-                    ForEach(BackgroundTheme.allCases, id: \.self) {
-                        Text($0.rawValue)
+                Section(footer: Text("‘다이나믹’은 앱의 배경으로 세련된 일러스트를 제공합니다.\n\n‘솔리드’를 선택하면 색상 테마에 맞는 단색 배경을 제공하며 정보에 집중할 때 효과적입니다.\n\n이 설정은 기기에 저장되며, 클라우드에 공유되지 않습니다.")) {
+                    Picker(selection: $backgroundTheme, label: Text("배경 테마")) {
+                        ForEach(BackgroundTheme.allCases, id: \.self) {
+                            Text($0.rawValue)
+                        }
                     }
                 }
                 .labelsHidden()

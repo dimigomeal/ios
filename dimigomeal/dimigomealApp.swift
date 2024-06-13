@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct dimigomealApp: App {
+    let persistenceController = PersistenceController.shared
     @AppStorage("theme/color") private var colorTheme = ColorTheme.system
     
     var body: some Scene {
@@ -16,6 +17,7 @@ struct dimigomealApp: App {
             NavigationView {
                 ContentView()
             }
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .preferredColorScheme(colorTheme.scheme)
         }
     }

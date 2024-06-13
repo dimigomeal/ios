@@ -39,9 +39,11 @@
 			);
 			target = FA7706C42C193ACA008140A9 /* dimigomeal */;
 		};
-		FA116EF82C1A7122003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		FA43F0962C1A85DC004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				MealModel.xcdatamodeld,
+				PersistenceController.swift,
 				ThemeModel.swift,
 			);
 			target = FA7706C42C193ACA008140A9 /* dimigomeal */;
@@ -51,7 +53,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA116ED82C19DB35003DCAA2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA116ED92C19DB3B003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 		FA116EDA2C19DB58003DCAA2 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA116EDB2C19DB63003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
-		FA116EF52C1A710B003DCAA2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA116EF82C1A7122003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		FA43F0922C1A85DC004233B1 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA43F0962C1A85DC004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +86,7 @@
 		FA7706C72C193ACA008140A9 /* dimigomeal */ = {
 			isa = PBXGroup;
 			children = (
-				FA116EF52C1A710B003DCAA2 /* Models */,
+				FA43F0922C1A85DC004233B1 /* Models */,
 				FA116EDA2C19DB58003DCAA2 /* Resources */,
 				FA116ED82C19DB35003DCAA2 /* Views */,
 				FA7706DB2C196C57008140A9 /* Info.plist */,
