@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct dimigomealApp: App {
+struct DimigoMealApp: App {
     let persistenceController = PersistenceController.shared
     @AppStorage("theme/color") private var colorTheme = ColorTheme.system
     

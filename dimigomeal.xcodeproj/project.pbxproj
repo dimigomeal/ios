@@ -7,15 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA7706C92C193ACA008140A9 /* dimigomealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7706C82C193ACA008140A9 /* dimigomealApp.swift */; };
-		FA7706D12C193ACC008140A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7706D02C193ACC008140A9 /* Preview Assets.xcassets */; };
+		FA43F0ED2C1AD2DE004233B1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA43F0EC2C1AD2DE004233B1 /* WidgetKit.framework */; };
+		FA43F0EF2C1AD2DE004233B1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA43F0EE2C1AD2DE004233B1 /* SwiftUI.framework */; };
+		FA43F0F22C1AD2DE004233B1 /* LiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43F0F12C1AD2DE004233B1 /* LiveActivity.swift */; };
+		FA43F0F42C1AD2DE004233B1 /* LiveActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43F0F32C1AD2DE004233B1 /* LiveActivityBundle.swift */; };
+		FA43F0FC2C1AD2DF004233B1 /* LiveActivity.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA43F0EA2C1AD2DE004233B1 /* LiveActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FA43F1012C1AD2E7004233B1 /* LiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43F0F12C1AD2DE004233B1 /* LiveActivity.swift */; };
+		FA43F1132C1BAE07004233B1 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		FA7706C92C193ACA008140A9 /* DimigoMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7706C82C193ACA008140A9 /* DimigoMealApp.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FA43F0FA2C1AD2DF004233B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA7706BD2C193ACA008140A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA43F0E92C1AD2DE004233B1;
+			remoteInfo = DynamicIslandWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA43F1002C1AD2DF004233B1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FA43F0FC2C1AD2DF004233B1 /* LiveActivity.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		FA7706C52C193ACA008140A9 /* dimigomeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dimigomeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA7706C82C193ACA008140A9 /* dimigomealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dimigomealApp.swift; sourceTree = "<group>"; };
-		FA7706CE2C193ACC008140A9 /* dimigomeal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dimigomeal.entitlements; sourceTree = "<group>"; };
-		FA7706D02C193ACC008140A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA43F0EA2C1AD2DE004233B1 /* LiveActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA43F0EC2C1AD2DE004233B1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FA43F0EE2C1AD2DE004233B1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FA43F0F12C1AD2DE004233B1 /* LiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivity.swift; sourceTree = "<group>"; };
+		FA43F0F32C1AD2DE004233B1 /* LiveActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityBundle.swift; sourceTree = "<group>"; };
+		FA43F0F92C1AD2DF004233B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA7706C52C193ACA008140A9 /* DimigoMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DimigoMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7706C82C193ACA008140A9 /* DimigoMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimigoMealApp.swift; sourceTree = "<group>"; };
+		FA7706CE2C193ACC008140A9 /* DimigoMeal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DimigoMeal.entitlements; sourceTree = "<group>"; };
 		FA7706DB2C196C57008140A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -28,8 +63,9 @@
 				MealView.swift.swift,
 				SettingsView.swift,
 				TriggerButton.swift,
+				WrappingHStack.swift,
 			);
-			target = FA7706C42C193ACA008140A9 /* dimigomeal */;
+			target = FA7706C42C193ACA008140A9 /* DimigoMeal */;
 		};
 		FA116EDB2C19DB63003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -40,28 +76,83 @@
 				"Fonts/SUIT-Medium.otf",
 				"Fonts/SUIT-Regular.otf",
 			);
-			target = FA7706C42C193ACA008140A9 /* dimigomeal */;
+			target = FA7706C42C193ACA008140A9 /* DimigoMeal */;
 		};
 		FA43F0962C1A85DC004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Effect.swift,
 				MealAPIResponse.swift,
 				MealModel.xcdatamodeld,
 				MealType.swift,
 				PersistenceController.swift,
 				Theme.swift,
 			);
-			target = FA7706C42C193ACA008140A9 /* dimigomeal */;
+			target = FA7706C42C193ACA008140A9 /* DimigoMeal */;
+		};
+		FA43F1072C1BA65F004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DateHelper.swift,
+				LiveActivityHelper.swift,
+				MealHelper.swift,
+			);
+			target = FA7706C42C193ACA008140A9 /* DimigoMeal */;
+		};
+		FA43F1092C1BA6CB004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DateHelper.swift,
+			);
+			target = FA43F0E92C1AD2DE004233B1 /* LiveActivity */;
+		};
+		FA43F10B2C1BA812004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				Colors.xcassets,
+				"Fonts/SUIT-Bold.otf",
+				"Fonts/SUIT-Medium.otf",
+				"Fonts/SUIT-Regular.otf",
+			);
+			target = FA43F0E92C1AD2DE004233B1 /* LiveActivity */;
+		};
+		FADE30D72C1BB12200759938 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WrappingHStack.swift,
+			);
+			target = FA43F0E92C1AD2DE004233B1 /* LiveActivity */;
+		};
+		FADE30D92C1BB4CE00759938 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Effect.swift,
+				MealType.swift,
+				Theme.swift,
+			);
+			target = FA43F0E92C1AD2DE004233B1 /* LiveActivity */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FA116ED82C19DB35003DCAA2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA116ED92C19DB3B003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
-		FA116EDA2C19DB58003DCAA2 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA116EDB2C19DB63003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
-		FA43F0922C1A85DC004233B1 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA43F0962C1A85DC004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		FA116ED82C19DB35003DCAA2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA116ED92C19DB3B003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FADE30D72C1BB12200759938 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+		FA116EDA2C19DB58003DCAA2 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA116EDB2C19DB63003DCAA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA43F10B2C1BA812004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
+		FA43F0922C1A85DC004233B1 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA43F0962C1A85DC004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FADE30D92C1BB4CE00759938 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		FA43F1042C1BA61C004233B1 /* Helpers */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA43F1072C1BA65F004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA43F1092C1BA6CB004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Helpers; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA43F0E72C1AD2DE004233B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA43F0EF2C1AD2DE004233B1 /* SwiftUI.framework in Frameworks */,
+				FA43F1132C1BAE07004233B1 /* (null) in Frameworks */,
+				FA43F0ED2C1AD2DE004233B1 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA7706C22C193ACA008140A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,10 +163,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA43F0EB2C1AD2DE004233B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA43F0EC2C1AD2DE004233B1 /* WidgetKit.framework */,
+				FA43F0EE2C1AD2DE004233B1 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA43F0F02C1AD2DE004233B1 /* LiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				FA43F0F12C1AD2DE004233B1 /* LiveActivity.swift */,
+				FA43F0F32C1AD2DE004233B1 /* LiveActivityBundle.swift */,
+				FA43F0F92C1AD2DF004233B1 /* Info.plist */,
+			);
+			path = LiveActivity;
+			sourceTree = "<group>";
+		};
 		FA7706BC2C193ACA008140A9 = {
 			isa = PBXGroup;
 			children = (
-				FA7706C72C193ACA008140A9 /* dimigomeal */,
+				FA7706C72C193ACA008140A9 /* DimigoMeal */,
+				FA43F0F02C1AD2DE004233B1 /* LiveActivity */,
+				FA43F0EB2C1AD2DE004233B1 /* Frameworks */,
 				FA7706C62C193ACA008140A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,51 +195,67 @@
 		FA7706C62C193ACA008140A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA7706C52C193ACA008140A9 /* dimigomeal.app */,
+				FA7706C52C193ACA008140A9 /* DimigoMeal.app */,
+				FA43F0EA2C1AD2DE004233B1 /* LiveActivity.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FA7706C72C193ACA008140A9 /* dimigomeal */ = {
+		FA7706C72C193ACA008140A9 /* DimigoMeal */ = {
 			isa = PBXGroup;
 			children = (
+				FA43F1042C1BA61C004233B1 /* Helpers */,
 				FA43F0922C1A85DC004233B1 /* Models */,
 				FA116EDA2C19DB58003DCAA2 /* Resources */,
 				FA116ED82C19DB35003DCAA2 /* Views */,
+				FA7706C82C193ACA008140A9 /* DimigoMealApp.swift */,
 				FA7706DB2C196C57008140A9 /* Info.plist */,
-				FA7706C82C193ACA008140A9 /* dimigomealApp.swift */,
-				FA7706CE2C193ACC008140A9 /* dimigomeal.entitlements */,
-				FA7706CF2C193ACC008140A9 /* Preview Content */,
+				FA7706CE2C193ACC008140A9 /* DimigoMeal.entitlements */,
 			);
-			path = dimigomeal;
-			sourceTree = "<group>";
-		};
-		FA7706CF2C193ACC008140A9 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				FA7706D02C193ACC008140A9 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
+			path = DimigoMeal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA7706C42C193ACA008140A9 /* dimigomeal */ = {
+		FA43F0E92C1AD2DE004233B1 /* LiveActivity */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA7706D42C193ACC008140A9 /* Build configuration list for PBXNativeTarget "dimigomeal" */;
+			buildConfigurationList = FA43F0FD2C1AD2DF004233B1 /* Build configuration list for PBXNativeTarget "LiveActivity" */;
 			buildPhases = (
-				FA7706C12C193ACA008140A9 /* Sources */,
-				FA7706C22C193ACA008140A9 /* Frameworks */,
-				FA7706C32C193ACA008140A9 /* Resources */,
+				FA43F0E62C1AD2DE004233B1 /* Sources */,
+				FA43F0E72C1AD2DE004233B1 /* Frameworks */,
+				FA43F0E82C1AD2DE004233B1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = dimigomeal;
+			name = LiveActivity;
+			packageProductDependencies = (
+			);
+			productName = DynamicIslandWidgetExtension;
+			productReference = FA43F0EA2C1AD2DE004233B1 /* LiveActivity.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		FA7706C42C193ACA008140A9 /* DimigoMeal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA7706D42C193ACC008140A9 /* Build configuration list for PBXNativeTarget "DimigoMeal" */;
+			buildPhases = (
+				FA7706C12C193ACA008140A9 /* Sources */,
+				FA7706C22C193ACA008140A9 /* Frameworks */,
+				FA7706C32C193ACA008140A9 /* Resources */,
+				FA43F1002C1AD2DF004233B1 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA43F0FB2C1AD2DF004233B1 /* PBXTargetDependency */,
+			);
+			name = DimigoMeal;
+			packageProductDependencies = (
+			);
 			productName = dimigomeal;
-			productReference = FA7706C52C193ACA008140A9 /* dimigomeal.app */;
+			productReference = FA7706C52C193ACA008140A9 /* DimigoMeal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -140,6 +268,9 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					FA43F0E92C1AD2DE004233B1 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					FA7706C42C193ACA008140A9 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -154,38 +285,136 @@
 				ko,
 			);
 			mainGroup = FA7706BC2C193ACA008140A9;
+			packageReferences = (
+			);
 			productRefGroup = FA7706C62C193ACA008140A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA7706C42C193ACA008140A9 /* dimigomeal */,
+				FA7706C42C193ACA008140A9 /* DimigoMeal */,
+				FA43F0E92C1AD2DE004233B1 /* LiveActivity */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA43F0E82C1AD2DE004233B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA7706C32C193ACA008140A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7706D12C193ACC008140A9 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FA43F0E62C1AD2DE004233B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA43F0F42C1AD2DE004233B1 /* LiveActivityBundle.swift in Sources */,
+				FA43F0F22C1AD2DE004233B1 /* LiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA7706C12C193ACA008140A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7706C92C193ACA008140A9 /* dimigomealApp.swift in Sources */,
+				FA43F1012C1AD2E7004233B1 /* LiveActivity.swift in Sources */,
+				FA7706C92C193ACA008140A9 /* DimigoMealApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FA43F0FB2C1AD2DF004233B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA43F0E92C1AD2DE004233B1 /* LiveActivity */;
+			targetProxy = FA43F0FA2C1AD2DF004233B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		FA43F0FE2C1AD2DF004233B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "디미고 급식 라이브 액티비티";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.liveactivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA43F0FF2C1AD2DF004233B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "디미고 급식 라이브 액티비티";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.liveactivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		FA7706D22C193ACC008140A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -305,15 +534,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = dimigomeal/dimigomeal.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DimigoMeal/DimigoMeal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"dimigomeal/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = YVKZAX7JYL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = dimigomeal/Info.plist;
+				INFOPLIST_FILE = DimigoMeal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "디미고 급식";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -327,11 +556,11 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -349,15 +578,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = dimigomeal/dimigomeal.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DimigoMeal/DimigoMeal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"dimigomeal/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = YVKZAX7JYL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = dimigomeal/Info.plist;
+				INFOPLIST_FILE = DimigoMeal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "디미고 급식";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -371,11 +600,11 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -391,6 +620,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA43F0FD2C1AD2DF004233B1 /* Build configuration list for PBXNativeTarget "LiveActivity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA43F0FE2C1AD2DF004233B1 /* Debug */,
+				FA43F0FF2C1AD2DF004233B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FA7706C02C193ACA008140A9 /* Build configuration list for PBXProject "dimigomeal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -400,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA7706D42C193ACC008140A9 /* Build configuration list for PBXNativeTarget "dimigomeal" */ = {
+		FA7706D42C193ACC008140A9 /* Build configuration list for PBXNativeTarget "DimigoMeal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA7706D52C193ACC008140A9 /* Debug */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MealView: View {
     let type: MealType
-    let meal: String?
+    let menu: String?
     
     var body: some View {
         VStack {
@@ -25,7 +25,7 @@ struct MealView: View {
                         Spacer()
                     }
                     VStack(alignment: .leading, spacing: 12) {
-                        ForEach("\(meal ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
+                        ForEach("\(menu ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
                             HStack {
                                 Text("•")
                                     .foregroundColor(Color("Color"))

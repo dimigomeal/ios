@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct TriggerButton: PrimitiveButtonStyle {
-    func makeBody(configuration: PrimitiveButtonStyle.Configuration) -> some View {
-        MyButton(configuration: configuration)
-    }
-
     struct MyButton: View {
         @State private var pressed = false
         @State private var skip = false
+        
+        @AppStorage("effect/haptic") private var hapticFeedback = true
 
         let configuration: PrimitiveButtonStyle.Configuration
         
@@ -42,11 +40,15 @@ struct TriggerButton: PrimitiveButtonStyle {
                             pressed = value
                         }
                     }, perform: {
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        if hapticFeedback {
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        }
                     })
                     .onChange(of: pressed) { _, value in
                         if !value {
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                            if hapticFeedback {
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                            }
                             
                             if !skip {
                                 configuration.trigger()
@@ -57,5 +59,9 @@ struct TriggerButton: PrimitiveButtonStyle {
             }
             .frame(height: 56)
         }
+    }
+    
+    func makeBody(configuration: PrimitiveButtonStyle.Configuration) -> some View {
+        MyButton(configuration: configuration)
     }
 }
