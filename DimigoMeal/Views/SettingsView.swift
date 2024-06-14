@@ -140,10 +140,35 @@ struct SettingsView: View {
                         Text(appVersion())
                             .foregroundColor(.gray)
                     }
+                    // "소스코드" with github icon
+                    Button(action: {
+                        UIApplication.shared.open(URL(string: "https://github.com/dimigomeal")!)
+                    }) {
+                        HStack {
+                            Text("소스코드")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                    }
                 }
+                
+                Section {
+                    Image("Senko")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 96)
+                        .edgesIgnoringSafeArea(.all)
+                    
+                }
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .listRowBackground(Color.clear)
+                .frame(maxWidth: .infinity, alignment: .trailing)
             }
             .navigationBarTitle("설정")
             .navigationBarTitleDisplayMode(.inline)
+            .edgesIgnoringSafeArea(.bottom)
+            .contentMargins(.bottom, 0)
             .onChange(of: activityTheme) {
                 Task {
                     await LiveActivityHelper.reload()
