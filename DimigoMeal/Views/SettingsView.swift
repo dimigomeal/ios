@@ -8,7 +8,6 @@
 import SwiftUI
 import ActivityKit
 
-
 struct SettingsView: View {
     @State private var isLoadingLiveActivity = false
     @State private var isErrorLiveActivity = false
@@ -19,12 +18,8 @@ struct SettingsView: View {
     @AppStorage("effect/transform") private var transformEffect = TransformEffect.slide
     @AppStorage("effect/haptic") private var hapticFeedback = true
     @AppStorage("function/liveactivity") private var liveActivity = false
-    
-    func checkLiveActivity() {
-        for activity in Activity<LiveActivityAttributes>.activities {
-            print(activity)
-        }
-    }
+    @AppStorage("debug/enable") private var debug = false
+    @AppStorage("debug/endpoint") private var endpoint = ""
     
     var body: some View {
         NavigationStack {
@@ -35,6 +30,11 @@ struct SettingsView: View {
                             .resizable()
                             .frame(width: 96, height: 96)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .rotationEffect(.degrees(debug ? 180 : 0))
+                            .onLongPressGesture(perform: {
+                                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                                debug.toggle()
+                            })
                         Text("디미고 급식")
                             .font(.title)
                             .fontWeight(.bold)
@@ -140,7 +140,6 @@ struct SettingsView: View {
                         Text(appVersion())
                             .foregroundColor(.gray)
                     }
-                    // "소스코드" with github icon
                     Button(action: {
                         UIApplication.shared.open(URL(string: "https://github.com/dimigomeal")!)
                     }) {
@@ -153,22 +152,28 @@ struct SettingsView: View {
                     }
                 }
                 
-                Section {
-                    Image("Senko")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 96)
-                        .edgesIgnoringSafeArea(.all)
-                    
-                }
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .listRowBackground(Color.clear)
-                .frame(maxWidth: .infinity, alignment: .trailing)
+                debug ? Group {
+                    Section(header: Text("DEBUG / Endpoint")) {
+                        TextField("Endpoint", text: $endpoint)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                        Button(action: {
+                            endpoint = ""
+                        }) {
+                            HStack {
+                                Spacer()
+                                Image(systemName: "trash")
+                                    .foregroundColor(.red)
+                                Text("RESET")
+                                    .foregroundColor(.red)
+                                Spacer()
+                            }
+                        }
+                    }
+                } : nil
             }
             .navigationBarTitle("설정")
             .navigationBarTitleDisplayMode(.inline)
-            .edgesIgnoringSafeArea(.bottom)
-            .contentMargins(.bottom, 0)
             .onChange(of: activityTheme) {
                 Task {
                     await LiveActivityHelper.reload()
@@ -182,94 +187,6 @@ struct SettingsView: View {
             return version
         } else {
             return ""
-        }
-    }
-}
-
-struct ColorThemeSettingsView: View {
-    @AppStorage("theme/color") private var colorTheme = ColorTheme.system
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                Section(footer: Text("시스템 설정은 기기 설정에 따라 화면 모드를 자동으로 전환합니다.\n\n라이트 모드는 변하지 않는 라이트 화면 모드를 제공합니다.\n\n다크 모드를 선택하면 어두운 화면 모드를 제공하여 앱에서 제공하는 정보가 쉽게 눈에 띄도록 합니다.")) {
-                    Picker(selection: $colorTheme, label: Text("색상 테마")) {
-                        ForEach(ColorTheme.allCases, id: \.self) {
-                            Text($0.rawValue)
-                        }
-                    }
-                    .labelsHidden()
-                    .pickerStyle(.inline)
-                }
-            }
-            .navigationBarTitle("앱 색상 테마")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
-
-struct BackgroundThemeSettingsView: View {
-    @AppStorage("theme/background") private var backgroundTheme = BackgroundTheme.dynamic
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                Section(footer: Text("‘다이나믹’은 앱의 배경으로 세련된 일러스트를 제공합니다.\n\n‘솔리드’를 선택하면 색상 테마에 맞는 단색 배경을 제공하며 정보에 집중할 때 효과적입니다.\n\n이 설정은 기기에 저장되며, 클라우드에 공유되지 않습니다.")) {
-                    Picker(selection: $backgroundTheme, label: Text("배경 테마")) {
-                        ForEach(BackgroundTheme.allCases, id: \.self) {
-                            Text($0.rawValue)
-                        }
-                    }
-                }
-                .labelsHidden()
-                .pickerStyle(.inline)
-            }
-            .navigationBarTitle("앱 배경 테마")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
-
-struct TransformEffectSettingsView: View {
-    @AppStorage("effect/transform") private var transformEffect = TransformEffect.slide
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                Section(footer: Text("‘슬라이드’는 급식 전환 시 슬라이드 효과를 제공합니다.\n\n‘페이드’는 급식 전환 시 페이드 효과를 제공합니다.")) {
-                    Picker(selection: $transformEffect, label: Text("급식 전환 효과")) {
-                        ForEach(TransformEffect.allCases, id: \.self) {
-                            Text($0.rawValue)
-                        }
-                    }
-                }
-                .labelsHidden()
-                .pickerStyle(.inline)
-            }
-            .navigationBarTitle("급식 전환 효과")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
-
-struct ActivityThemeSettingsView: View {
-    @AppStorage("theme/activity") private var activityTheme = ActivityTheme.dynamic
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                Section(footer: Text("‘다이나믹’은 앱의 라이브 액티비티의 배경으로 시간에 따른 그라데이션을 제공합니다.\n\n‘시스템 설정’은 기기 설정에 따라 화면 모드를 자동으로 전환합니다.\n\n‘라이트 모드’는 변하지 않는 라이트 화면 모드를 제공합니다.\n\n'다크 모드'는 어두운 화면 모드를 제공하여 라이브 액티비티에서 제공하는 정보가 쉽게 눈에 띄도록 합니다.")) {
-                    Picker(selection: $activityTheme, label: Text("액티비티 테마")) {
-                        ForEach(ActivityTheme.allCases, id: \.self) {
-                            Text($0.rawValue)
-                        }
-                    }
-                }
-                .labelsHidden()
-                .pickerStyle(.inline)
-            }
-            .navigationBarTitle("라이브 액티비티 테마")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

@@ -66,27 +66,7 @@ struct MealHelper {
         }
     }
     
-    static func load(_ date: String) {
-        let url = URL(string: "https://api.디미고급식.com/week?date=\(date)")!
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Failed to fetch data: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-            
-            do {
-                let meals = try JSONDecoder().decode([MealAPIResponse].self, from: data)
-                for mealData in meals {
-                    save(mealData)
-                }
-            } catch {
-                print("Failed to decode JSON: \(error)")
-            }
-        }.resume()
-    }
-    
-    static private func save(_ mealData: MealAPIResponse) {
+    static func save(_ mealData: MealAPIResponse) {
         if let meal = get(mealData.date) {
             meal.breakfast = mealData.breakfast
             meal.lunch = mealData.lunch

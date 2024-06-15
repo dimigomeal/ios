@@ -167,13 +167,18 @@ struct ContentView: View {
     }
     
     private func update(_ date: Date) {
-        let meal = MealHelper.get(DateHelper.format(date))
-        if let meal = meal {
-            self.meal = meal
-        } else {
-            self.meal = nil
-        }
+        self.meal = MealHelper.get(DateHelper.format(date))
         
-        MealHelper.load(DateHelper.format(date))
+        Task {
+            if let meals = await EndpointHelper.fetch(DateHelper.format(date)) {
+                for meal in meals {
+                    MealHelper.save(meal)
+                }
+            }
+            
+            if(self.meal == nil) {
+                self.meal = MealHelper.get(DateHelper.format(date))
+            }
+        }
     }
 }

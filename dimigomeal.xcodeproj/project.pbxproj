@@ -61,6 +61,10 @@
 				BackdropBlurView.swift,
 				ContentView.swift,
 				MealView.swift.swift,
+				Settings/ActivityThemeSettingsView.swift,
+				Settings/BackgroundThemeSettingsView.swift,
+				Settings/ColorThemeSettingsView.swift,
+				Settings/TransformEffectSettingsView.swift,
 				SettingsView.swift,
 				TriggerButton.swift,
 				WrappingHStack.swift,
@@ -81,12 +85,11 @@
 		FA43F0962C1A85DC004233B1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Effect.swift,
-				MealAPIResponse.swift,
+				EffectModel.swift,
+				MealModel.swift,
 				MealModel.xcdatamodeld,
-				MealType.swift,
 				PersistenceController.swift,
-				Theme.swift,
+				ThemeModel.swift,
 			);
 			target = FA7706C42C193ACA008140A9 /* DimigoMeal */;
 		};
@@ -94,6 +97,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				DateHelper.swift,
+				EndpointHelper.swift,
 				LiveActivityHelper.swift,
 				MealHelper.swift,
 			);
@@ -127,9 +131,8 @@
 		FADE30D92C1BB4CE00759938 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Effect.swift,
-				MealType.swift,
-				Theme.swift,
+				MealModel.swift,
+				ThemeModel.swift,
 			);
 			target = FA43F0E92C1AD2DE004233B1 /* LiveActivity */;
 		};
@@ -357,13 +360,13 @@
 				INFOPLIST_FILE = LiveActivity/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "디미고 급식 라이브 액티비티";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.liveactivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -392,13 +395,13 @@
 				INFOPLIST_FILE = LiveActivity/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "디미고 급식 라이브 액티비티";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.liveactivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -560,7 +563,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -604,7 +607,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
