@@ -1,6 +1,6 @@
 //
 //  ThemeModel.swift
-//  dimigomeal
+//  DimigoMeal
 //
 //  Created by noViceMin on 2024-06-13.
 //
@@ -26,7 +26,7 @@ enum BackgroundTheme: String, CaseIterable {
     case solid = "솔리드"
 }
 
-enum ActivityTheme: String, CaseIterable, Codable {
+enum WidgetTheme: String, CaseIterable, Codable {
     case dynamic = "다이나믹"
     case light = "라이트 모드"
     case dark = "다크 모드"
@@ -40,7 +40,7 @@ enum ActivityTheme: String, CaseIterable, Codable {
     }
 }
 
-func matchColor(_ theme: ActivityTheme, _ dynamic: Color, _ light: Color, _ dark: Color) -> Color {
+func matchColor(_ theme: WidgetTheme, _ dynamic: Color, _ light: Color, _ dark: Color) -> Color {
     switch theme {
         case .dynamic: return dynamic
         case .light: return light

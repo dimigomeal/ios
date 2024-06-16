@@ -16,9 +16,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA9FA1682C1ED391000EBBF4"
-               BuildableName = "LiveActivity.appex"
-               BlueprintName = "LiveActivity"
+               BlueprintIdentifier = "FA9FA1832C1ED3AA000EBBF4"
+               BuildableName = "WidgetExtension.appex"
+               BlueprintName = "WidgetExtension"
                ReferencedContainer = "container:DimigoMeal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +57,18 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FA9FA1832C1ED3AA000EBBF4"
+            BuildableName = "WidgetExtension.appex"
+            BlueprintName = "WidgetExtension"
+            ReferencedContainer = "container:DimigoMeal.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA9FA1522C1ED352000EBBF4"
@@ -66,7 +76,7 @@
             BlueprintName = "DimigoMeal"
             ReferencedContainer = "container:DimigoMeal.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"

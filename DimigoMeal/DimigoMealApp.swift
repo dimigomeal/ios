@@ -1,6 +1,6 @@
 //
-//  dimigomealApp.swift
-//  dimigomeal
+//  DimigoMealApp.swift
+//  DimigoMeal
 //
 //  Created by noViceMin on 2024-06-12.
 //

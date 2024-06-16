@@ -1,22 +1,23 @@
 //
 //  LiveActivityHelper.swift
-//  dimigomeal
+//  DimigoMeal
 //
 //  Created by noViceMin on 2024-06-14.
 //
 
 import SwiftUI
 import ActivityKit
+import CoreData
 
 struct LiveActivityHelper {
-    @AppStorage("theme/activity") static private var activityTheme = ActivityTheme.dynamic
+    @AppStorage("theme/activity") static private var activityTheme = WidgetTheme.dynamic
     @AppStorage("function/liveactivity") static private var liveActivity = false
     
-    static func start() async -> Bool {
+    static func start(_ viewContext: NSManagedObjectContext) async -> Bool {
         if let activity = check() {
             print("Live Activity already exists: \(tokenToString(activity.pushToken!))")
         } else {
-            let current = MealHelper.current()
+            let current = MealHelper.current(viewContext)
             let attributes = LiveActivityAttributes(theme: activityTheme)
             let state = LiveActivityAttributes.ContentState(type: current.type, menu: current.menu, date: current.date)
             
@@ -60,17 +61,17 @@ struct LiveActivityHelper {
         liveActivity = false
     }
     
-    static func reload() async {
+    static func reload(_ viewContext: NSManagedObjectContext) async {
         if let activity = check() {
             if let pushToken = activity.pushToken {
                 if await EndpointHelper.removeToken(tokenToString(pushToken)) {
                     await remove()
-                    _ = await start()
+                    _ = await start(viewContext)
                 }
             }
         } else {
             if(liveActivity) {
-                _ = await start()
+                _ = await start(viewContext)
             }
         }
     }

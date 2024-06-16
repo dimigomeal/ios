@@ -1,6 +1,6 @@
 //
 //  DateHelper.swift
-//  dimigomeal
+//  DimigoMeal
 //
 //  Created by noViceMin on 2024-06-14.
 //

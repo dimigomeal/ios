@@ -1,6 +1,6 @@
 //
 //  SettingsView.swift
-//  dimigomeal
+//  DimigoMeal
 //
 //  Created by noViceMin on 2024-06-12.
 //
@@ -9,12 +9,14 @@ import SwiftUI
 import ActivityKit
 
 struct SettingsView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var isLoadingLiveActivity = false
     @State private var isErrorLiveActivity = false
     
     @AppStorage("theme/color") private var colorTheme = ColorTheme.system
     @AppStorage("theme/background") private var backgroundTheme = BackgroundTheme.dynamic
-    @AppStorage("theme/activity") private var activityTheme = ActivityTheme.dynamic
+    @AppStorage("theme/activity") private var activityTheme = WidgetTheme.dynamic
     @AppStorage("effect/transform") private var transformEffect = TransformEffect.slide
     @AppStorage("effect/haptic") private var hapticFeedback = true
     @AppStorage("function/liveactivity") private var liveActivity = false
@@ -88,7 +90,7 @@ struct SettingsView: View {
                             if liveActivity {
                                 await LiveActivityHelper.end()
                             } else {
-                                isErrorLiveActivity = !(await LiveActivityHelper.start())
+                                isErrorLiveActivity = !(await LiveActivityHelper.start(viewContext))
                             }
                             isLoadingLiveActivity = false
                         }
@@ -176,7 +178,7 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onChange(of: activityTheme) {
                 Task {
-                    await LiveActivityHelper.reload()
+                    await LiveActivityHelper.reload(viewContext)
                 }
             }
         }

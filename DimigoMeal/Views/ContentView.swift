@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  dimigomeal
+//  DimigoMeal
 //
 //  Created by noViceMin on 2024-06-12.
 //
@@ -9,6 +9,8 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var targetDate = Date()
     @State private var offset = CGFloat.zero
     @State private var offsetIndex: Int = -1
@@ -138,19 +140,19 @@ struct ContentView: View {
                 today()
                 
                 Task {
-                    await LiveActivityHelper.reload()
+                    await LiveActivityHelper.reload(viewContext)
                 }
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 Task {
-                    await LiveActivityHelper.reload()
+                    await LiveActivityHelper.reload(viewContext)
                 }
             }
         }
     }
     
     private func today() {
-        let current = MealHelper.current()
+        let current = MealHelper.current(viewContext)
         targetDate = DateHelper.formatToDate(current.date)
         offsetIndex = MealType.allCases.firstIndex(of: current.type)!
         update(targetDate)
@@ -167,18 +169,34 @@ struct ContentView: View {
     }
     
     private func update(_ date: Date) {
-        self.meal = MealHelper.get(DateHelper.format(date))
+        self.meal = MealHelper.get(viewContext, DateHelper.format(date))
         
         Task {
             if let meals = await EndpointHelper.fetch(DateHelper.format(date)) {
                 for meal in meals {
-                    MealHelper.save(meal)
+                    MealHelper.save(viewContext, meal)
                 }
             }
             
             if(self.meal == nil) {
-                self.meal = MealHelper.get(DateHelper.format(date))
+                self.meal = MealHelper.get(viewContext, DateHelper.format(date))
             }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    @AppStorage("theme/color") private var colorTheme = ColorTheme.system
+    
+    static var previews: some View {
+        let persistenceController = PersistenceController.preview
+        
+        ForEach(ColorScheme.allCases, id: \.self) { scheme in
+            NavigationView {
+                ContentView()
+            }
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            .preferredColorScheme(scheme)
         }
     }
 }
