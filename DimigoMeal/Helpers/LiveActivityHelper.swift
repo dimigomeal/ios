@@ -24,10 +24,6 @@ struct LiveActivityHelper {
             let attributes = LiveActivityAttributes(theme: activityTheme)
             let state = LiveActivityAttributes.ContentState(type: current.type, menu: current.menu, date: current.date)
             
-            
-            let attributes2 = LiveActivityAttributes(theme: .light)
-            let attributes3 = LiveActivityAttributes(theme: .dark)
-            
             do {
                 let activity = try Activity.request(
                     attributes: attributes,
@@ -35,33 +31,21 @@ struct LiveActivityHelper {
                     pushType: .token
                 )
                 
-                try Activity.request(
-                    attributes: attributes2,
-                    content: .init(state: state, staleDate: nil),
-                    pushType: .token
-                )
-                
-                try Activity.request(
-                    attributes: attributes3,
-                    content: .init(state: state, staleDate: nil),
-                    pushType: .token
-                )
-                
-//                for await token in activity.pushTokenUpdates {
-//                    let tokenString = tokenToString(token)
-//                    
-//                    print("New push token: \(tokenString)")
-//                    if await EndpointHelper.addToken(tokenString) {
-//                        liveActivity = true
-//                        
-//                        loadingLiveActivity = false
-//                        return true
-//                    } else {
-//                        await remove()
-//                    }
-//                    
-//                    break
-//                }
+                for await token in activity.pushTokenUpdates {
+                    let tokenString = tokenToString(token)
+                    
+                    print("New push token: \(tokenString)")
+                    if await EndpointHelper.addToken(tokenString) {
+                        liveActivity = true
+                        
+                        loadingLiveActivity = false
+                        return true
+                    } else {
+                        await remove()
+                    }
+                    
+                    break
+                }
             } catch {
                 print("Failed to start Live Activity: \(error.localizedDescription)")
             }
