@@ -24,7 +24,7 @@ struct Provider: IntentTimelineProvider {
         WidgetExtensionEntry(
             date: Date(),
             theme: .dynamic,
-            data: WidgetData(type: .dinner, menu: dummyMeal.dinner, date: dummyMeal.date)
+            data: WidgetData(type: .breakfast, menu: dummyMeal.breakfast, date: dummyMeal.date)
         )
     }
 
@@ -99,6 +99,7 @@ struct WidgetExtensionEntryView : View {
             menu: entry.data.menu,
             date: entry.data.date
         )
+        .frame(maxHeight: .infinity, alignment: .top)
     }
 }
 
@@ -127,6 +128,6 @@ struct WidgetExtension: Widget {
     WidgetExtensionEntry(
         date: .now,
         theme: .dynamic,
-        data: WidgetData(type: .dinner, menu: dummyMeal.dinner, date: dummyMeal.date)
+        data: WidgetData(type: .breakfast, menu: dummyMeal.breakfast, date: dummyMeal.date)
     )
 }

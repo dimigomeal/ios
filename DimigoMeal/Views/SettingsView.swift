@@ -11,7 +11,6 @@ import ActivityKit
 struct SettingsView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var isLoadingLiveActivity = false
     @State private var isErrorLiveActivity = false
     
     @AppStorage("theme/color") private var colorTheme = ColorTheme.system
@@ -22,6 +21,7 @@ struct SettingsView: View {
     @AppStorage("function/liveactivity") private var liveActivity = false
     @AppStorage("debug/enable") private var debug = false
     @AppStorage("debug/endpoint") private var endpoint = ""
+    @AppStorage("loading/liveactivity") private var loadingLiveActivity = false
     
     var body: some View {
         NavigationStack {
@@ -85,19 +85,17 @@ struct SettingsView: View {
                         }
                     }
                     Button(action: {
-                        isLoadingLiveActivity = true
                         Task {
                             if liveActivity {
                                 await LiveActivityHelper.end()
                             } else {
                                 isErrorLiveActivity = !(await LiveActivityHelper.start(viewContext))
                             }
-                            isLoadingLiveActivity = false
                         }
                     }) {
                         HStack {
                             Spacer()
-                            if isLoadingLiveActivity {
+                            if loadingLiveActivity {
                                 ProgressView()
                             } else {
                                 Image(systemName: liveActivity ? "stop.circle" : "play.circle")
@@ -108,7 +106,7 @@ struct SettingsView: View {
                             Spacer()
                         }
                     }
-                    .disabled(isLoadingLiveActivity)
+                    .disabled(loadingLiveActivity)
                     .alert(isPresented: $isErrorLiveActivity) {
                         Alert(
                             title: Text("라이브 액티비티 활성화 실패"),

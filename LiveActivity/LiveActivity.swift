@@ -18,13 +18,13 @@ struct LiveActivity: Widget {
                 menu: context.state.menu,
                 date: context.state.date
             )
+            .frame(maxHeight: .infinity, alignment: .top)
             .activityBackgroundTint(
                 MatchBackground(context.attributes.theme, context.state.type)
             )
             .activitySystemActionForegroundColor(
                 matchColor(context.attributes.theme, Color("ColorDynamic"), Color("ColorLight"), Color("ColorDark"))
             )
-
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {

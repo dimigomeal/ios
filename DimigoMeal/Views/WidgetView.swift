@@ -62,40 +62,51 @@ func MatchGradientBackground(_ theme: WidgetTheme, _ type: MealType) -> LinearGr
         return LinearGradient(colors: [Color("BackgroundDark")], startPoint: .center, endPoint: .center)
     }
 }
-/*
-binding: theme, type, menu, date
- VStack(spacing: 16) {
-     HStack {
-         Image(type == .breakfast ? "BreakfastIcon" : type == .lunch ? "LunchIcon" : "DinnerIcon")
-             .resizable()
-             .frame(width: 20, height: 20)
-         Text(type == .breakfast ? "아침" : type == .lunch ? "점심" : "저녁")
-             .foregroundColor(MatchColor(context.attributes.theme))
-             .font(.custom("SUIT-Bold", size: 20))
-         Spacer()
-         Text(DateHelper.formatToStringFormat(date))
-             .foregroundColor(MatchColor(theme))
-             .font(.custom("SUIT-Medium", size: 14))
-             .opacity(0.7)
-     }
-     WrappingHStack(horizontalSpacing: 6, verticalSpacing: 6) {
-         ForEach("\(menu ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
-             VStack {
-                 Text(item)
-                     .foregroundColor(MatchColor(context.attributes.theme))
-                     .font(.custom("SUIT-Medium", size: 12))
-             }
-             .padding(.horizontal, 6)
-             .frame(minHeight: 24)
-             .background(context.attributes.theme == .dynamic ? Color("ColorDynamic").opacity(0.12) : Color("ItemBackground"))
-             .cornerRadius(6)
-         }
-     }
- }
- .frame(maxHeight: .infinity, alignment: .topLeading)
- .padding(16)
- */
-// make WidgetView
+
+func layout(sizes: [CGSize], spacing: CGFloat = 8, containerWidth: CGFloat) -> (offsets: [CGPoint], size: CGSize) {
+    var result: [CGPoint] = []
+    
+    var currentPosition: CGPoint = .zero
+    
+    var lineHeight: CGFloat = 0
+    
+    var maxX: CGFloat = 0
+    for size in sizes {
+        
+        if currentPosition.x + size.width > containerWidth {
+            currentPosition.x = 0
+            currentPosition.y += lineHeight + spacing
+            lineHeight = 0
+        }
+        result.append(currentPosition)
+        currentPosition.x += size.width
+        
+        maxX = max(maxX, currentPosition.x)
+        currentPosition.x += spacing
+        lineHeight = max(lineHeight, size.height)
+    }
+    return (result, .init(width: maxX, height: currentPosition.y + lineHeight))
+}
+
+struct FlowLayout: Layout {
+    var spacing: CGFloat = 8
+    
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let containerWidth = proposal.width ?? .infinity
+        let sizes = subviews.map { $0.sizeThatFits(.unspecified) }
+        return layout(sizes: sizes, spacing: spacing, containerWidth: containerWidth).size
+    }
+    
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let sizes = subviews.map { $0.sizeThatFits(.unspecified) }
+        let offsets =
+        layout(sizes: sizes, spacing: spacing, containerWidth: bounds.width).offsets
+        for (offset, subview) in zip(offsets, subviews) {
+            subview.place(at: .init(x: offset.x + bounds.minX, y: offset.y + bounds.minY), proposal: .unspecified)
+        }
+    }
+}
+
 struct WidgetView: View {
     var theme: WidgetTheme
     var type: MealType
@@ -103,7 +114,7 @@ struct WidgetView: View {
     var date: String
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Image(type == .breakfast ? "BreakfastIcon" : type == .lunch ? "LunchIcon" : "DinnerIcon")
                     .resizable()
@@ -117,7 +128,7 @@ struct WidgetView: View {
                     .font(.custom("SUIT-Medium", size: 14))
                     .opacity(0.7)
             }
-            WrappingHStack(horizontalSpacing: 6, verticalSpacing: 6) {
+            AnyLayout(FlowLayout(spacing: 6)) {
                 ForEach("\(menu ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
                     VStack {
                         Text(item)
@@ -131,8 +142,8 @@ struct WidgetView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(
             MatchGradientBackground(theme, type)
         )

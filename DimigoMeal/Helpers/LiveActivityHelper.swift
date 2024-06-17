@@ -12,14 +12,21 @@ import CoreData
 struct LiveActivityHelper {
     @AppStorage("theme/activity") static private var activityTheme = WidgetTheme.dynamic
     @AppStorage("function/liveactivity") static private var liveActivity = false
+    @AppStorage("loading/liveactivity") static private var loadingLiveActivity = false
     
     static func start(_ viewContext: NSManagedObjectContext) async -> Bool {
+        loadingLiveActivity = true
+        
         if let activity = check() {
             print("Live Activity already exists: \(tokenToString(activity.pushToken!))")
         } else {
             let current = MealHelper.current(viewContext)
             let attributes = LiveActivityAttributes(theme: activityTheme)
             let state = LiveActivityAttributes.ContentState(type: current.type, menu: current.menu, date: current.date)
+            
+            
+            let attributes2 = LiveActivityAttributes(theme: .light)
+            let attributes3 = LiveActivityAttributes(theme: .dark)
             
             do {
                 let activity = try Activity.request(
@@ -28,28 +35,45 @@ struct LiveActivityHelper {
                     pushType: .token
                 )
                 
-                for await token in activity.pushTokenUpdates {
-                    let tokenString = tokenToString(token)
-                    
-                    print("New push token: \(tokenString)")
-                    if await EndpointHelper.addToken(tokenString) {
-                        liveActivity = true
-                        return true
-                    } else {
-                        await remove()
-                    }
-                    
-                    break
-                }
+                try Activity.request(
+                    attributes: attributes2,
+                    content: .init(state: state, staleDate: nil),
+                    pushType: .token
+                )
+                
+                try Activity.request(
+                    attributes: attributes3,
+                    content: .init(state: state, staleDate: nil),
+                    pushType: .token
+                )
+                
+//                for await token in activity.pushTokenUpdates {
+//                    let tokenString = tokenToString(token)
+//                    
+//                    print("New push token: \(tokenString)")
+//                    if await EndpointHelper.addToken(tokenString) {
+//                        liveActivity = true
+//                        
+//                        loadingLiveActivity = false
+//                        return true
+//                    } else {
+//                        await remove()
+//                    }
+//                    
+//                    break
+//                }
             } catch {
                 print("Failed to start Live Activity: \(error.localizedDescription)")
             }
         }
         
+        loadingLiveActivity = false
         return false
     }
     
     static func end() async {
+        loadingLiveActivity = true
+        
         if let activity = check() {
             await remove()
             
@@ -58,10 +82,13 @@ struct LiveActivityHelper {
             }
         }
         
+        loadingLiveActivity = false
         liveActivity = false
     }
     
     static func reload(_ viewContext: NSManagedObjectContext) async {
+        loadingLiveActivity = true
+        
         if let activity = check() {
             if let pushToken = activity.pushToken {
                 if await EndpointHelper.removeToken(tokenToString(pushToken)) {
@@ -74,6 +101,8 @@ struct LiveActivityHelper {
                 _ = await start(viewContext)
             }
         }
+        
+        loadingLiveActivity = false
     }
     
     static private func check() -> Activity<LiveActivityAttributes>? {
