@@ -20,7 +20,7 @@ struct PersistenceController {
     
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "MealModel")
-        let url = URL.storeURL(for: "group.kr.isamin.dimigomeal", databaseName: "MealModel")
+        let url = URL.storeURL(for: "group.kr.isamin.dimigomeal.data", databaseName: "MealModel")
         let storeDescription = NSPersistentStoreDescription(url: url)
         container.persistentStoreDescriptions = [storeDescription]
 

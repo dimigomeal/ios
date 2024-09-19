@@ -17,8 +17,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA9FA1832C1ED3AA000EBBF4"
-               BuildableName = "WidgetExtension.appex"
-               BlueprintName = "WidgetExtension"
+               BuildableName = "Widget.appex"
+               BlueprintName = "Widget"
                ReferencedContainer = "container:DimigoMeal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -63,8 +63,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA9FA1832C1ED3AA000EBBF4"
-            BuildableName = "WidgetExtension.appex"
-            BlueprintName = "WidgetExtension"
+            BuildableName = "Widget.appex"
+            BlueprintName = "Widget"
             ReferencedContainer = "container:DimigoMeal.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>

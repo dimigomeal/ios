@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73137C252C9B9F2D003AFEA2 /* DimigoMealWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 73137C182C9B9F2C003AFEA2 /* DimigoMealWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA6EF0FB2C1EDE1400B628CF /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF0FA2C1EDE1300B628CF /* LiveActivityAttributes.swift */; };
 		FA6EF0FC2C1EDE4700B628CF /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF0FA2C1EDE1300B628CF /* LiveActivityAttributes.swift */; };
-		FA6EF21D2C1F15B800B628CF /* WidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* WidgetExtension.intentdefinition */; };
-		FA6EF2652C1F182F00B628CF /* WidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* WidgetExtension.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		FA6EF21D2C1F15B800B628CF /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */; };
+		FA6EF2652C1F182F00B628CF /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		FA6EF26C2C1F18BC00B628CF /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EF26B2C1F18BC00B628CF /* Intents.framework */; };
 		FA6EF26F2C1F18BC00B628CF /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF26E2C1F18BC00B628CF /* IntentHandler.swift */; };
 		FA6EF2772C1F18BC00B628CF /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EF2762C1F18BC00B628CF /* IntentsUI.framework */; };
@@ -18,22 +19,29 @@
 		FA6EF27D2C1F18BC00B628CF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FA6EF27C2C1F18BC00B628CF /* Base */; };
 		FA6EF2812C1F18BD00B628CF /* IntentsExtensionUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA6EF2752C1F18BC00B628CF /* IntentsExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA6EF2842C1F18BD00B628CF /* IntentsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA6EF26A2C1F18BC00B628CF /* IntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FA6EF28B2C1F1A7300B628CF /* WidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* WidgetExtension.intentdefinition */; };
-		FA6EF28C2C1F1A7300B628CF /* WidgetExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* WidgetExtension.intentdefinition */; };
+		FA6EF28B2C1F1A7300B628CF /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */; };
+		FA6EF28C2C1F1A7300B628CF /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */; };
 		FA9FA1572C1ED352000EBBF4 /* DimigoMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA1562C1ED352000EBBF4 /* DimigoMealApp.swift */; };
 		FA9FA16C2C1ED391000EBBF4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9FA16B2C1ED391000EBBF4 /* WidgetKit.framework */; };
 		FA9FA16E2C1ED391000EBBF4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9FA16D2C1ED391000EBBF4 /* SwiftUI.framework */; };
 		FA9FA17B2C1ED392000EBBF4 /* LiveActivity.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA9FA1692C1ED391000EBBF4 /* LiveActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA9FA1852C1ED3AA000EBBF4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9FA16B2C1ED391000EBBF4 /* WidgetKit.framework */; };
 		FA9FA1862C1ED3AA000EBBF4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9FA16D2C1ED391000EBBF4 /* SwiftUI.framework */; };
-		FA9FA1912C1ED3AB000EBBF4 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA9FA1842C1ED3AA000EBBF4 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FA9FA1912C1ED3AB000EBBF4 /* Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA9FA1842C1ED3AA000EBBF4 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA9FA1F52C1ED4C0000EBBF4 /* LiveActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA1F42C1ED4C0000EBBF4 /* LiveActivityBundle.swift */; };
 		FA9FA1F62C1ED4C0000EBBF4 /* LiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA1F32C1ED4C0000EBBF4 /* LiveActivity.swift */; };
-		FA9FA1FB2C1ED4D8000EBBF4 /* WidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA1F92C1ED4D8000EBBF4 /* WidgetExtension.swift */; };
-		FA9FA1FC2C1ED4D8000EBBF4 /* WidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA1FA2C1ED4D8000EBBF4 /* WidgetExtensionBundle.swift */; };
+		FA9FA1FB2C1ED4D8000EBBF4 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA1F92C1ED4D8000EBBF4 /* Widget.swift */; };
+		FA9FA1FC2C1ED4D8000EBBF4 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9FA1FA2C1ED4D8000EBBF4 /* WidgetBundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		73137C232C9B9F2D003AFEA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA9FA14B2C1ED352000EBBF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73137C172C9B9F2C003AFEA2;
+			remoteInfo = "DimigoMealWatch Watch App";
+		};
 		FA6EF27F2C1F18BD00B628CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA9FA14B2C1ED352000EBBF4 /* Project object */;
@@ -65,6 +73,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		73137C262C9B9F2D003AFEA2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				73137C252C9B9F2D003AFEA2 /* DimigoMealWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA9FA17F2C1ED392000EBBF4 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -74,7 +93,7 @@
 				FA6EF2842C1F18BD00B628CF /* IntentsExtension.appex in Embed Foundation Extensions */,
 				FA6EF2812C1F18BD00B628CF /* IntentsExtensionUI.appex in Embed Foundation Extensions */,
 				FA9FA17B2C1ED392000EBBF4 /* LiveActivity.appex in Embed Foundation Extensions */,
-				FA9FA1912C1ED3AB000EBBF4 /* WidgetExtension.appex in Embed Foundation Extensions */,
+				FA9FA1912C1ED3AB000EBBF4 /* Widget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,10 +101,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		73137C182C9B9F2C003AFEA2 /* DimigoMealWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DimigoMealWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6EF0F12C1EDC4A00B628CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FA6EF0FA2C1EDE1300B628CF /* LiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityAttributes.swift; sourceTree = "<group>"; };
-		FA6EF21A2C1F0C0A00B628CF /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
-		FA6EF21C2C1F15B800B628CF /* WidgetExtension.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WidgetExtension.intentdefinition; sourceTree = "<group>"; };
+		FA6EF21A2C1F0C0A00B628CF /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
+		FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widget.intentdefinition; sourceTree = "<group>"; };
 		FA6EF26A2C1F18BC00B628CF /* IntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6EF26B2C1F18BC00B628CF /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		FA6EF26E2C1F18BC00B628CF /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -101,16 +121,25 @@
 		FA9FA1692C1ED391000EBBF4 /* LiveActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9FA16B2C1ED391000EBBF4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		FA9FA16D2C1ED391000EBBF4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		FA9FA1842C1ED3AA000EBBF4 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9FA1842C1ED3AA000EBBF4 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9FA1F22C1ED4C0000EBBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9FA1F32C1ED4C0000EBBF4 /* LiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivity.swift; sourceTree = "<group>"; };
 		FA9FA1F42C1ED4C0000EBBF4 /* LiveActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityBundle.swift; sourceTree = "<group>"; };
 		FA9FA1F82C1ED4D8000EBBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA9FA1F92C1ED4D8000EBBF4 /* WidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExtension.swift; sourceTree = "<group>"; };
-		FA9FA1FA2C1ED4D8000EBBF4 /* WidgetExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExtensionBundle.swift; sourceTree = "<group>"; };
+		FA9FA1F92C1ED4D8000EBBF4 /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		FA9FA1FA2C1ED4D8000EBBF4 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		73137C2B2C9BA669003AFEA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MealModel.swift,
+				MealModel.xcdatamodeld,
+				PersistenceController.swift,
+			);
+			target = 73137C172C9B9F2C003AFEA2 /* DimigoMealWatch */;
+		};
 		FA6EF2162C1EF85A00B628CF /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -134,7 +163,7 @@
 				PersistenceController.swift,
 				ThemeModel.swift,
 			);
-			target = FA9FA1832C1ED3AA000EBBF4 /* WidgetExtension */;
+			target = FA9FA1832C1ED3AA000EBBF4 /* Widget */;
 		};
 		FA9FA2062C1ED503000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -149,7 +178,7 @@
 				DateHelper.swift,
 				MealHelper.swift,
 			);
-			target = FA9FA1832C1ED3AA000EBBF4 /* WidgetExtension */;
+			target = FA9FA1832C1ED3AA000EBBF4 /* Widget */;
 		};
 		FA9FA20A2C1ED52D000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -163,18 +192,26 @@
 			membershipExceptions = (
 				WidgetView.swift,
 			);
-			target = FA9FA1832C1ED3AA000EBBF4 /* WidgetExtension */;
+			target = FA9FA1832C1ED3AA000EBBF4 /* Widget */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		73137C192C9B9F2C003AFEA2 /* DimigoMealWatch */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DimigoMealWatch; sourceTree = "<group>"; };
 		FA9FA1992C1ED435000EBBF4 /* Helpers */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA9FA2062C1ED503000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA2072C1ED503000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Helpers; sourceTree = "<group>"; };
-		FA9FA1BE2C1ED44A000EBBF4 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA9FA2002C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA2012C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		FA9FA1BE2C1ED44A000EBBF4 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (73137C2B2C9BA669003AFEA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA2002C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA2012C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		FA9FA1CC2C1ED46C000EBBF4 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
 		FA9FA1E72C1ED472000EBBF4 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA6EF2162C1EF85A00B628CF /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA20A2C1ED52D000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA20B2C1ED52D000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		73137C152C9B9F2C003AFEA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA6EF2672C1F18BC00B628CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,8 +279,9 @@
 			isa = PBXGroup;
 			children = (
 				FA9FA1552C1ED352000EBBF4 /* DimigoMeal */,
+				73137C192C9B9F2C003AFEA2 /* DimigoMealWatch */,
 				FA9FA16F2C1ED391000EBBF4 /* LiveActivity */,
-				FA9FA1872C1ED3AA000EBBF4 /* WidgetExtension */,
+				FA9FA1872C1ED3AA000EBBF4 /* Widget */,
 				FA6EF26D2C1F18BC00B628CF /* IntentsExtension */,
 				FA6EF2782C1F18BC00B628CF /* IntentsExtensionUI */,
 				FA9FA16A2C1ED391000EBBF4 /* Frameworks */,
@@ -256,9 +294,10 @@
 			children = (
 				FA9FA1532C1ED352000EBBF4 /* DimigoMeal.app */,
 				FA9FA1692C1ED391000EBBF4 /* LiveActivity.appex */,
-				FA9FA1842C1ED3AA000EBBF4 /* WidgetExtension.appex */,
+				FA9FA1842C1ED3AA000EBBF4 /* Widget.appex */,
 				FA6EF26A2C1F18BC00B628CF /* IntentsExtension.appex */,
 				FA6EF2752C1F18BC00B628CF /* IntentsExtensionUI.appex */,
+				73137C182C9B9F2C003AFEA2 /* DimigoMealWatch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,21 +338,43 @@
 			path = LiveActivity;
 			sourceTree = "<group>";
 		};
-		FA9FA1872C1ED3AA000EBBF4 /* WidgetExtension */ = {
+		FA9FA1872C1ED3AA000EBBF4 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				FA9FA1F92C1ED4D8000EBBF4 /* WidgetExtension.swift */,
-				FA6EF21C2C1F15B800B628CF /* WidgetExtension.intentdefinition */,
-				FA9FA1FA2C1ED4D8000EBBF4 /* WidgetExtensionBundle.swift */,
-				FA6EF21A2C1F0C0A00B628CF /* WidgetExtension.entitlements */,
+				FA9FA1F92C1ED4D8000EBBF4 /* Widget.swift */,
+				FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */,
+				FA9FA1FA2C1ED4D8000EBBF4 /* WidgetBundle.swift */,
+				FA6EF21A2C1F0C0A00B628CF /* Widget.entitlements */,
 				FA9FA1F82C1ED4D8000EBBF4 /* Info.plist */,
 			);
-			path = WidgetExtension;
+			path = Widget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		73137C172C9B9F2C003AFEA2 /* DimigoMealWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73137C292C9B9F2D003AFEA2 /* Build configuration list for PBXNativeTarget "DimigoMealWatch" */;
+			buildPhases = (
+				73137C142C9B9F2C003AFEA2 /* Sources */,
+				73137C152C9B9F2C003AFEA2 /* Frameworks */,
+				73137C162C9B9F2C003AFEA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				73137C192C9B9F2C003AFEA2 /* DimigoMealWatch */,
+			);
+			name = DimigoMealWatch;
+			packageProductDependencies = (
+			);
+			productName = "DimigoMealWatch Watch App";
+			productReference = 73137C182C9B9F2C003AFEA2 /* DimigoMealWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
 		FA6EF2692C1F18BC00B628CF /* IntentsExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA6EF2882C1F18BD00B628CF /* Build configuration list for PBXNativeTarget "IntentsExtension" */;
@@ -356,6 +417,7 @@
 				FA9FA1502C1ED352000EBBF4 /* Frameworks */,
 				FA9FA1512C1ED352000EBBF4 /* Resources */,
 				FA9FA17F2C1ED392000EBBF4 /* Embed Foundation Extensions */,
+				73137C262C9B9F2D003AFEA2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -364,6 +426,7 @@
 				FA9FA1902C1ED3AB000EBBF4 /* PBXTargetDependency */,
 				FA6EF2802C1F18BD00B628CF /* PBXTargetDependency */,
 				FA6EF2832C1F18BD00B628CF /* PBXTargetDependency */,
+				73137C242C9B9F2D003AFEA2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				FA9FA1992C1ED435000EBBF4 /* Helpers */,
@@ -396,9 +459,9 @@
 			productReference = FA9FA1692C1ED391000EBBF4 /* LiveActivity.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		FA9FA1832C1ED3AA000EBBF4 /* WidgetExtension */ = {
+		FA9FA1832C1ED3AA000EBBF4 /* Widget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA9FA1922C1ED3AB000EBBF4 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildConfigurationList = FA9FA1922C1ED3AB000EBBF4 /* Build configuration list for PBXNativeTarget "Widget" */;
 			buildPhases = (
 				FA9FA1802C1ED3AA000EBBF4 /* Sources */,
 				FA9FA1812C1ED3AA000EBBF4 /* Frameworks */,
@@ -411,9 +474,9 @@
 			fileSystemSynchronizedGroups = (
 				FA9FA1CC2C1ED46C000EBBF4 /* Resources */,
 			);
-			name = WidgetExtension;
+			name = Widget;
 			productName = WidgetExtensionExtension;
-			productReference = FA9FA1842C1ED3AA000EBBF4 /* WidgetExtension.appex */;
+			productReference = FA9FA1842C1ED3AA000EBBF4 /* Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -426,6 +489,9 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					73137C172C9B9F2C003AFEA2 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					FA6EF2692C1F18BC00B628CF = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -457,8 +523,9 @@
 			projectRoot = "";
 			targets = (
 				FA9FA1522C1ED352000EBBF4 /* DimigoMeal */,
+				73137C172C9B9F2C003AFEA2 /* DimigoMealWatch */,
 				FA9FA1682C1ED391000EBBF4 /* LiveActivity */,
-				FA9FA1832C1ED3AA000EBBF4 /* WidgetExtension */,
+				FA9FA1832C1ED3AA000EBBF4 /* Widget */,
 				FA6EF2692C1F18BC00B628CF /* IntentsExtension */,
 				FA6EF2742C1F18BC00B628CF /* IntentsExtensionUI */,
 			);
@@ -466,6 +533,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		73137C162C9B9F2C003AFEA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA6EF2682C1F18BC00B628CF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,11 +579,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		73137C142C9B9F2C003AFEA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA6EF2662C1F18BC00B628CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6EF28B2C1F1A7300B628CF /* WidgetExtension.intentdefinition in Sources */,
+				FA6EF28B2C1F1A7300B628CF /* Widget.intentdefinition in Sources */,
 				FA6EF26F2C1F18BC00B628CF /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,7 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6EF28C2C1F1A7300B628CF /* WidgetExtension.intentdefinition in Sources */,
+				FA6EF28C2C1F1A7300B628CF /* Widget.intentdefinition in Sources */,
 				FA6EF27A2C1F18BC00B628CF /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,7 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6EF2652C1F182F00B628CF /* WidgetExtension.intentdefinition in Sources */,
+				FA6EF2652C1F182F00B628CF /* Widget.intentdefinition in Sources */,
 				FA9FA1572C1ED352000EBBF4 /* DimigoMealApp.swift in Sources */,
 				FA6EF0FC2C1EDE4700B628CF /* LiveActivityAttributes.swift in Sources */,
 			);
@@ -547,15 +628,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6EF21D2C1F15B800B628CF /* WidgetExtension.intentdefinition in Sources */,
-				FA9FA1FB2C1ED4D8000EBBF4 /* WidgetExtension.swift in Sources */,
-				FA9FA1FC2C1ED4D8000EBBF4 /* WidgetExtensionBundle.swift in Sources */,
+				FA6EF21D2C1F15B800B628CF /* Widget.intentdefinition in Sources */,
+				FA9FA1FB2C1ED4D8000EBBF4 /* Widget.swift in Sources */,
+				FA9FA1FC2C1ED4D8000EBBF4 /* WidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		73137C242C9B9F2D003AFEA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73137C172C9B9F2C003AFEA2 /* DimigoMealWatch */;
+			targetProxy = 73137C232C9B9F2D003AFEA2 /* PBXContainerItemProxy */;
+		};
 		FA6EF2802C1F18BD00B628CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA6EF2742C1F18BC00B628CF /* IntentsExtensionUI */;
@@ -573,7 +659,7 @@
 		};
 		FA9FA1902C1ED3AB000EBBF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA9FA1832C1ED3AA000EBBF4 /* WidgetExtension */;
+			target = FA9FA1832C1ED3AA000EBBF4 /* Widget */;
 			targetProxy = FA9FA18F2C1ED3AB000EBBF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -590,12 +676,77 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		73137C272C9B9F2D003AFEA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DimigoMealWatch/DimigoMealWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 55RQQG4L55;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DimigoMealWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.isamin.dimigomeal;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.4;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.watch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		73137C282C9B9F2D003AFEA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DimigoMealWatch/DimigoMealWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 55RQQG4L55;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DimigoMealWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = kr.isamin.dimigomeal;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.4;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.watch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
 		FA6EF2862C1F18BD00B628CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IntentsExtensionUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntentsExtensionUI;
@@ -626,7 +777,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IntentsExtensionUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntentsExtensionUI;
@@ -658,7 +809,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IntentsExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntentsExtension;
@@ -689,7 +840,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IntentsExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntentsExtension;
@@ -842,7 +993,7 @@
 				CODE_SIGN_ENTITLEMENTS = DimigoMeal/DimigoMeal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -885,7 +1036,7 @@
 				CODE_SIGN_ENTITLEMENTS = DimigoMeal/DimigoMeal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -927,7 +1078,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveActivity/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LiveActivity;
@@ -960,7 +1111,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveActivity/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LiveActivity;
@@ -992,12 +1143,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetExtension/WidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1007,7 +1158,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.widgetextension;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1026,12 +1177,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetExtension/WidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DEVELOPMENT_TEAM = YVKZAX7JYL;
+				DEVELOPMENT_TEAM = 55RQQG4L55;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1041,7 +1192,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.widgetextension;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1059,6 +1210,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		73137C292C9B9F2D003AFEA2 /* Build configuration list for PBXNativeTarget "DimigoMealWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73137C272C9B9F2D003AFEA2 /* Debug */,
+				73137C282C9B9F2D003AFEA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FA6EF2852C1F18BD00B628CF /* Build configuration list for PBXNativeTarget "IntentsExtensionUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1104,7 +1264,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA9FA1922C1ED3AB000EBBF4 /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+		FA9FA1922C1ED3AB000EBBF4 /* Build configuration list for PBXNativeTarget "Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA9FA1932C1ED3AB000EBBF4 /* Debug */,
