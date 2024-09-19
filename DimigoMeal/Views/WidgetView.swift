@@ -119,7 +119,7 @@ struct WidgetView: View {
                 Image(type == .breakfast ? "BreakfastIcon" : type == .lunch ? "LunchIcon" : "DinnerIcon")
                     .resizable()
                     .frame(width: 20, height: 20)
-                Text(type == .breakfast ? "아침" : type == .lunch ? "점심" : "저녁")
+                Text(StringHelper.getTypeString(type))
                     .foregroundColor(MatchColor(theme))
                     .font(.custom("SUIT-Bold", size: 20))
                 Spacer()
@@ -129,7 +129,7 @@ struct WidgetView: View {
                     .opacity(0.7)
             }
             AnyLayout(FlowLayout(spacing: 6)) {
-                ForEach("\(menu ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
+                ForEach(StringHelper.getMealArray(menu), id: \.self) { item in
                     VStack {
                         Text(item)
                             .foregroundColor(MatchColor(theme))

@@ -43,7 +43,9 @@ struct MealHelper {
             }
         }
         
-        return Current(type: type, date: date, menu: menu)
+        let typeIndex = MealType.allCases.firstIndex(of: type)!
+        
+        return Current(type: type, typeIndex: typeIndex, date: date, menu: menu)
     }
     
     static func get(_ viewContext: NSManagedObjectContext, _ date: String) -> MealEntity? {

@@ -3,11 +3,69 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		73137C252C9B9F2D003AFEA2 /* DimigoMealWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 73137C182C9B9F2C003AFEA2 /* DimigoMealWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73BC6CF62C9BB84A007D7989 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CF02C9BB84A007D7989 /* ContentView.swift */; };
+		73BC6CF72C9BB84A007D7989 /* DimigoMealWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CF42C9BB84A007D7989 /* DimigoMealWatchApp.swift */; };
+		73BC6CF82C9BB84A007D7989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6CF22C9BB84A007D7989 /* Assets.xcassets */; };
+		73BC6CFE2C9BB85A007D7989 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CF92C9BB85A007D7989 /* DateHelper.swift */; };
+		73BC6CFF2C9BB85A007D7989 /* EndpointHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CFA2C9BB85A007D7989 /* EndpointHelper.swift */; };
+		73BC6D002C9BB85A007D7989 /* LiveActivityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CFB2C9BB85A007D7989 /* LiveActivityHelper.swift */; };
+		73BC6D012C9BB85A007D7989 /* MealHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CFC2C9BB85A007D7989 /* MealHelper.swift */; };
+		73BC6D022C9BB85A007D7989 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CF92C9BB85A007D7989 /* DateHelper.swift */; };
+		73BC6D032C9BB85A007D7989 /* EndpointHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CFA2C9BB85A007D7989 /* EndpointHelper.swift */; };
+		73BC6D042C9BB85A007D7989 /* MealHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CFC2C9BB85A007D7989 /* MealHelper.swift */; };
+		73BC6D052C9BB85A007D7989 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CF92C9BB85A007D7989 /* DateHelper.swift */; };
+		73BC6D062C9BB85A007D7989 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CF92C9BB85A007D7989 /* DateHelper.swift */; };
+		73BC6D072C9BB85A007D7989 /* MealHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6CFC2C9BB85A007D7989 /* MealHelper.swift */; };
+		73BC6D0F2C9BB85D007D7989 /* EffectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D082C9BB85D007D7989 /* EffectModel.swift */; };
+		73BC6D102C9BB85D007D7989 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D092C9BB85D007D7989 /* MealModel.swift */; };
+		73BC6D112C9BB85D007D7989 /* MealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0A2C9BB85D007D7989 /* MealModel.xcdatamodeld */; };
+		73BC6D122C9BB85D007D7989 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0B2C9BB85D007D7989 /* PersistenceController.swift */; };
+		73BC6D132C9BB85D007D7989 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0C2C9BB85D007D7989 /* ThemeModel.swift */; };
+		73BC6D142C9BB85D007D7989 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D092C9BB85D007D7989 /* MealModel.swift */; };
+		73BC6D152C9BB85D007D7989 /* MealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0A2C9BB85D007D7989 /* MealModel.xcdatamodeld */; };
+		73BC6D162C9BB85D007D7989 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0B2C9BB85D007D7989 /* PersistenceController.swift */; };
+		73BC6D172C9BB85D007D7989 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0C2C9BB85D007D7989 /* ThemeModel.swift */; };
+		73BC6D182C9BB85D007D7989 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D092C9BB85D007D7989 /* MealModel.swift */; };
+		73BC6D192C9BB85D007D7989 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0C2C9BB85D007D7989 /* ThemeModel.swift */; };
+		73BC6D1A2C9BB85D007D7989 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D092C9BB85D007D7989 /* MealModel.swift */; };
+		73BC6D1B2C9BB85D007D7989 /* MealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0A2C9BB85D007D7989 /* MealModel.xcdatamodeld */; };
+		73BC6D1C2C9BB85D007D7989 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D0B2C9BB85D007D7989 /* PersistenceController.swift */; };
+		73BC6D242C9BB85F007D7989 /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1D2C9BB85F007D7989 /* SUIT-Bold.otf */; };
+		73BC6D252C9BB85F007D7989 /* SUIT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1E2C9BB85F007D7989 /* SUIT-Medium.otf */; };
+		73BC6D262C9BB85F007D7989 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1F2C9BB85F007D7989 /* SUIT-Regular.otf */; };
+		73BC6D272C9BB85F007D7989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D212C9BB85F007D7989 /* Assets.xcassets */; };
+		73BC6D282C9BB85F007D7989 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D222C9BB85F007D7989 /* Colors.xcassets */; };
+		73BC6D292C9BB85F007D7989 /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1D2C9BB85F007D7989 /* SUIT-Bold.otf */; };
+		73BC6D2A2C9BB85F007D7989 /* SUIT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1E2C9BB85F007D7989 /* SUIT-Medium.otf */; };
+		73BC6D2B2C9BB85F007D7989 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1F2C9BB85F007D7989 /* SUIT-Regular.otf */; };
+		73BC6D2C2C9BB85F007D7989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D212C9BB85F007D7989 /* Assets.xcassets */; };
+		73BC6D2D2C9BB85F007D7989 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D222C9BB85F007D7989 /* Colors.xcassets */; };
+		73BC6D2E2C9BB85F007D7989 /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1D2C9BB85F007D7989 /* SUIT-Bold.otf */; };
+		73BC6D2F2C9BB85F007D7989 /* SUIT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1E2C9BB85F007D7989 /* SUIT-Medium.otf */; };
+		73BC6D302C9BB85F007D7989 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D1F2C9BB85F007D7989 /* SUIT-Regular.otf */; };
+		73BC6D312C9BB85F007D7989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D212C9BB85F007D7989 /* Assets.xcassets */; };
+		73BC6D322C9BB85F007D7989 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BC6D222C9BB85F007D7989 /* Colors.xcassets */; };
+		73BC6D3F2C9BB862007D7989 /* ActivityThemeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D332C9BB862007D7989 /* ActivityThemeSettingsView.swift */; };
+		73BC6D402C9BB862007D7989 /* BackgroundThemeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D342C9BB862007D7989 /* BackgroundThemeSettingsView.swift */; };
+		73BC6D412C9BB862007D7989 /* ColorThemeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D352C9BB862007D7989 /* ColorThemeSettingsView.swift */; };
+		73BC6D422C9BB862007D7989 /* TransformEffectSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D362C9BB862007D7989 /* TransformEffectSettingsView.swift */; };
+		73BC6D432C9BB862007D7989 /* BackdropBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D382C9BB862007D7989 /* BackdropBlurView.swift */; };
+		73BC6D442C9BB862007D7989 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D392C9BB862007D7989 /* ContentView.swift */; };
+		73BC6D452C9BB862007D7989 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D3A2C9BB862007D7989 /* MealView.swift */; };
+		73BC6D462C9BB862007D7989 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D3B2C9BB862007D7989 /* SettingsView.swift */; };
+		73BC6D472C9BB862007D7989 /* TriggerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D3C2C9BB862007D7989 /* TriggerButton.swift */; };
+		73BC6D492C9BB862007D7989 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D3D2C9BB862007D7989 /* WidgetView.swift */; };
+		73BC6D4A2C9BB862007D7989 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D3D2C9BB862007D7989 /* WidgetView.swift */; };
+		73BC6D4D2C9BB895007D7989 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D4C2C9BB895007D7989 /* MealView.swift */; };
+		73BC6D552C9BCBB9007D7989 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D542C9BCBB9007D7989 /* StringHelper.swift */; };
+		73BC6D562C9BCBB9007D7989 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D542C9BCBB9007D7989 /* StringHelper.swift */; };
+		73BC6D572C9BCBB9007D7989 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D542C9BCBB9007D7989 /* StringHelper.swift */; };
+		73BC6D582C9BCBB9007D7989 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC6D542C9BCBB9007D7989 /* StringHelper.swift */; };
 		FA6EF0FB2C1EDE1400B628CF /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF0FA2C1EDE1300B628CF /* LiveActivityAttributes.swift */; };
 		FA6EF0FC2C1EDE4700B628CF /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF0FA2C1EDE1300B628CF /* LiveActivityAttributes.swift */; };
 		FA6EF21D2C1F15B800B628CF /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */; };
@@ -16,7 +74,6 @@
 		FA6EF26F2C1F18BC00B628CF /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF26E2C1F18BC00B628CF /* IntentHandler.swift */; };
 		FA6EF2772C1F18BC00B628CF /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EF2762C1F18BC00B628CF /* IntentsUI.framework */; };
 		FA6EF27A2C1F18BC00B628CF /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF2792C1F18BC00B628CF /* IntentViewController.swift */; };
-		FA6EF27D2C1F18BC00B628CF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FA6EF27C2C1F18BC00B628CF /* Base */; };
 		FA6EF2812C1F18BD00B628CF /* IntentsExtensionUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA6EF2752C1F18BC00B628CF /* IntentsExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA6EF2842C1F18BD00B628CF /* IntentsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA6EF26A2C1F18BC00B628CF /* IntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA6EF28B2C1F1A7300B628CF /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF21C2C1F15B800B628CF /* Widget.intentdefinition */; };
@@ -102,6 +159,37 @@
 
 /* Begin PBXFileReference section */
 		73137C182C9B9F2C003AFEA2 /* DimigoMealWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DimigoMealWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73935FB62C9BD6B5001C9BE1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		73BC6CF02C9BB84A007D7989 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		73BC6CF22C9BB84A007D7989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		73BC6CF32C9BB84A007D7989 /* DimigoMealWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DimigoMealWatch.entitlements; sourceTree = "<group>"; };
+		73BC6CF42C9BB84A007D7989 /* DimigoMealWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimigoMealWatchApp.swift; sourceTree = "<group>"; };
+		73BC6CF92C9BB85A007D7989 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		73BC6CFA2C9BB85A007D7989 /* EndpointHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointHelper.swift; sourceTree = "<group>"; };
+		73BC6CFB2C9BB85A007D7989 /* LiveActivityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityHelper.swift; sourceTree = "<group>"; };
+		73BC6CFC2C9BB85A007D7989 /* MealHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHelper.swift; sourceTree = "<group>"; };
+		73BC6D082C9BB85D007D7989 /* EffectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectModel.swift; sourceTree = "<group>"; };
+		73BC6D092C9BB85D007D7989 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
+		73BC6D0B2C9BB85D007D7989 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		73BC6D0C2C9BB85D007D7989 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		73BC6D0E2C9BB85D007D7989 /* MealModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MealModel.xcdatamodel; sourceTree = "<group>"; };
+		73BC6D1D2C9BB85F007D7989 /* SUIT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Bold.otf"; sourceTree = "<group>"; };
+		73BC6D1E2C9BB85F007D7989 /* SUIT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Medium.otf"; sourceTree = "<group>"; };
+		73BC6D1F2C9BB85F007D7989 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
+		73BC6D212C9BB85F007D7989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		73BC6D222C9BB85F007D7989 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		73BC6D332C9BB862007D7989 /* ActivityThemeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityThemeSettingsView.swift; sourceTree = "<group>"; };
+		73BC6D342C9BB862007D7989 /* BackgroundThemeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundThemeSettingsView.swift; sourceTree = "<group>"; };
+		73BC6D352C9BB862007D7989 /* ColorThemeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeSettingsView.swift; sourceTree = "<group>"; };
+		73BC6D362C9BB862007D7989 /* TransformEffectSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformEffectSettingsView.swift; sourceTree = "<group>"; };
+		73BC6D382C9BB862007D7989 /* BackdropBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropBlurView.swift; sourceTree = "<group>"; };
+		73BC6D392C9BB862007D7989 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		73BC6D3A2C9BB862007D7989 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
+		73BC6D3B2C9BB862007D7989 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		73BC6D3C2C9BB862007D7989 /* TriggerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerButton.swift; sourceTree = "<group>"; };
+		73BC6D3D2C9BB862007D7989 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		73BC6D4C2C9BB895007D7989 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
+		73BC6D542C9BCBB9007D7989 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		FA6EF0F12C1EDC4A00B628CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FA6EF0FA2C1EDE1300B628CF /* LiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityAttributes.swift; sourceTree = "<group>"; };
 		FA6EF21A2C1F0C0A00B628CF /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
@@ -113,7 +201,6 @@
 		FA6EF2752C1F18BC00B628CF /* IntentsExtensionUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IntentsExtensionUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6EF2762C1F18BC00B628CF /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		FA6EF2792C1F18BC00B628CF /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
-		FA6EF27C2C1F18BC00B628CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		FA6EF27E2C1F18BD00B628CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9FA1532C1ED352000EBBF4 /* DimigoMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DimigoMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9FA1562C1ED352000EBBF4 /* DimigoMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimigoMealApp.swift; sourceTree = "<group>"; };
@@ -129,80 +216,6 @@
 		FA9FA1F92C1ED4D8000EBBF4 /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		FA9FA1FA2C1ED4D8000EBBF4 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		73137C2B2C9BA669003AFEA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MealModel.swift,
-				MealModel.xcdatamodeld,
-				PersistenceController.swift,
-			);
-			target = 73137C172C9B9F2C003AFEA2 /* DimigoMealWatch */;
-		};
-		FA6EF2162C1EF85A00B628CF /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				WidgetView.swift,
-			);
-			target = FA9FA1522C1ED352000EBBF4 /* DimigoMeal */;
-		};
-		FA9FA2002C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MealModel.swift,
-				ThemeModel.swift,
-			);
-			target = FA9FA1682C1ED391000EBBF4 /* LiveActivity */;
-		};
-		FA9FA2012C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MealModel.swift,
-				MealModel.xcdatamodeld,
-				PersistenceController.swift,
-				ThemeModel.swift,
-			);
-			target = FA9FA1832C1ED3AA000EBBF4 /* Widget */;
-		};
-		FA9FA2062C1ED503000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				DateHelper.swift,
-			);
-			target = FA9FA1682C1ED391000EBBF4 /* LiveActivity */;
-		};
-		FA9FA2072C1ED503000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				DateHelper.swift,
-				MealHelper.swift,
-			);
-			target = FA9FA1832C1ED3AA000EBBF4 /* Widget */;
-		};
-		FA9FA20A2C1ED52D000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				WidgetView.swift,
-			);
-			target = FA9FA1682C1ED391000EBBF4 /* LiveActivity */;
-		};
-		FA9FA20B2C1ED52D000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				WidgetView.swift,
-			);
-			target = FA9FA1832C1ED3AA000EBBF4 /* Widget */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		73137C192C9B9F2C003AFEA2 /* DimigoMealWatch */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DimigoMealWatch; sourceTree = "<group>"; };
-		FA9FA1992C1ED435000EBBF4 /* Helpers */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA9FA2062C1ED503000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA2072C1ED503000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Helpers; sourceTree = "<group>"; };
-		FA9FA1BE2C1ED44A000EBBF4 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (73137C2B2C9BA669003AFEA2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA2002C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA2012C1ED4EB000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
-		FA9FA1CC2C1ED46C000EBBF4 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
-		FA9FA1E72C1ED472000EBBF4 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA6EF2162C1EF85A00B628CF /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA20A2C1ED52D000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FA9FA20B2C1ED52D000EBBF4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		73137C152C9B9F2C003AFEA2 /* Frameworks */ = {
@@ -256,6 +269,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73BC6CF12C9BB84A007D7989 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6D4C2C9BB895007D7989 /* MealView.swift */,
+				73BC6CF02C9BB84A007D7989 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		73BC6CF52C9BB84A007D7989 /* DimigoMealWatch */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6D4B2C9BB873007D7989 /* Resources */,
+				73BC6CF12C9BB84A007D7989 /* Views */,
+				73BC6CF42C9BB84A007D7989 /* DimigoMealWatchApp.swift */,
+				73BC6CF32C9BB84A007D7989 /* DimigoMealWatch.entitlements */,
+			);
+			path = DimigoMealWatch;
+			sourceTree = "<group>";
+		};
+		73BC6CFD2C9BB85A007D7989 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6CF92C9BB85A007D7989 /* DateHelper.swift */,
+				73BC6CFA2C9BB85A007D7989 /* EndpointHelper.swift */,
+				73BC6CFB2C9BB85A007D7989 /* LiveActivityHelper.swift */,
+				73BC6CFC2C9BB85A007D7989 /* MealHelper.swift */,
+				73BC6D542C9BCBB9007D7989 /* StringHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		73BC6D0D2C9BB85D007D7989 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6D082C9BB85D007D7989 /* EffectModel.swift */,
+				73BC6D092C9BB85D007D7989 /* MealModel.swift */,
+				73BC6D0A2C9BB85D007D7989 /* MealModel.xcdatamodeld */,
+				73BC6D0B2C9BB85D007D7989 /* PersistenceController.swift */,
+				73BC6D0C2C9BB85D007D7989 /* ThemeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		73BC6D202C9BB85F007D7989 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6D1D2C9BB85F007D7989 /* SUIT-Bold.otf */,
+				73BC6D1E2C9BB85F007D7989 /* SUIT-Medium.otf */,
+				73BC6D1F2C9BB85F007D7989 /* SUIT-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		73BC6D232C9BB85F007D7989 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6D202C9BB85F007D7989 /* Fonts */,
+				73BC6D212C9BB85F007D7989 /* Assets.xcassets */,
+				73BC6D222C9BB85F007D7989 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		73BC6D372C9BB862007D7989 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6D332C9BB862007D7989 /* ActivityThemeSettingsView.swift */,
+				73BC6D342C9BB862007D7989 /* BackgroundThemeSettingsView.swift */,
+				73BC6D352C9BB862007D7989 /* ColorThemeSettingsView.swift */,
+				73BC6D362C9BB862007D7989 /* TransformEffectSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		73BC6D3E2C9BB862007D7989 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6D372C9BB862007D7989 /* Settings */,
+				73BC6D382C9BB862007D7989 /* BackdropBlurView.swift */,
+				73BC6D3A2C9BB862007D7989 /* MealView.swift */,
+				73BC6D3B2C9BB862007D7989 /* SettingsView.swift */,
+				73BC6D3C2C9BB862007D7989 /* TriggerButton.swift */,
+				73BC6D3D2C9BB862007D7989 /* WidgetView.swift */,
+				73BC6D392C9BB862007D7989 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		73BC6D4B2C9BB873007D7989 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73BC6CF22C9BB84A007D7989 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FA6EF26D2C1F18BC00B628CF /* IntentsExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,7 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				FA9FA1552C1ED352000EBBF4 /* DimigoMeal */,
-				73137C192C9B9F2C003AFEA2 /* DimigoMealWatch */,
+				73BC6CF52C9BB84A007D7989 /* DimigoMealWatch */,
 				FA9FA16F2C1ED391000EBBF4 /* LiveActivity */,
 				FA9FA1872C1ED3AA000EBBF4 /* Widget */,
 				FA6EF26D2C1F18BC00B628CF /* IntentsExtension */,
@@ -305,10 +415,10 @@
 		FA9FA1552C1ED352000EBBF4 /* DimigoMeal */ = {
 			isa = PBXGroup;
 			children = (
-				FA9FA1992C1ED435000EBBF4 /* Helpers */,
-				FA9FA1BE2C1ED44A000EBBF4 /* Models */,
-				FA9FA1CC2C1ED46C000EBBF4 /* Resources */,
-				FA9FA1E72C1ED472000EBBF4 /* Views */,
+				73BC6CFD2C9BB85A007D7989 /* Helpers */,
+				73BC6D0D2C9BB85D007D7989 /* Models */,
+				73BC6D232C9BB85F007D7989 /* Resources */,
+				73BC6D3E2C9BB862007D7989 /* Views */,
 				FA9FA1562C1ED352000EBBF4 /* DimigoMealApp.swift */,
 				FA9FA15C2C1ED354000EBBF4 /* DimigoMeal.entitlements */,
 				FA6EF0F12C1EDC4A00B628CF /* Info.plist */,
@@ -364,9 +474,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				73137C192C9B9F2C003AFEA2 /* DimigoMealWatch */,
 			);
 			name = DimigoMealWatch;
 			packageProductDependencies = (
@@ -428,12 +535,6 @@
 				FA6EF2832C1F18BD00B628CF /* PBXTargetDependency */,
 				73137C242C9B9F2D003AFEA2 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				FA9FA1992C1ED435000EBBF4 /* Helpers */,
-				FA9FA1BE2C1ED44A000EBBF4 /* Models */,
-				FA9FA1CC2C1ED46C000EBBF4 /* Resources */,
-				FA9FA1E72C1ED472000EBBF4 /* Views */,
-			);
 			name = DimigoMeal;
 			productName = DimigoMeal;
 			productReference = FA9FA1532C1ED352000EBBF4 /* DimigoMeal.app */;
@@ -451,9 +552,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				FA9FA1CC2C1ED46C000EBBF4 /* Resources */,
-			);
 			name = LiveActivity;
 			productName = LiveActivityExtension;
 			productReference = FA9FA1692C1ED391000EBBF4 /* LiveActivity.appex */;
@@ -470,9 +568,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				FA9FA1CC2C1ED46C000EBBF4 /* Resources */,
 			);
 			name = Widget;
 			productName = WidgetExtensionExtension;
@@ -511,11 +606,10 @@
 			};
 			buildConfigurationList = FA9FA14E2C1ED352000EBBF4 /* Build configuration list for PBXProject "DimigoMeal" */;
 			compatibilityVersion = "Xcode 15.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
+				ko,
 			);
 			mainGroup = FA9FA14A2C1ED352000EBBF4;
 			productRefGroup = FA9FA1542C1ED352000EBBF4 /* Products */;
@@ -537,6 +631,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BC6CF82C9BB84A007D7989 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +646,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6EF27D2C1F18BC00B628CF /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +653,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BC6D242C9BB85F007D7989 /* SUIT-Bold.otf in Resources */,
+				73BC6D252C9BB85F007D7989 /* SUIT-Medium.otf in Resources */,
+				73BC6D262C9BB85F007D7989 /* SUIT-Regular.otf in Resources */,
+				73BC6D272C9BB85F007D7989 /* Assets.xcassets in Resources */,
+				73BC6D282C9BB85F007D7989 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +665,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BC6D292C9BB85F007D7989 /* SUIT-Bold.otf in Resources */,
+				73BC6D2A2C9BB85F007D7989 /* SUIT-Medium.otf in Resources */,
+				73BC6D2B2C9BB85F007D7989 /* SUIT-Regular.otf in Resources */,
+				73BC6D2C2C9BB85F007D7989 /* Assets.xcassets in Resources */,
+				73BC6D2D2C9BB85F007D7989 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +677,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BC6D2E2C9BB85F007D7989 /* SUIT-Bold.otf in Resources */,
+				73BC6D2F2C9BB85F007D7989 /* SUIT-Medium.otf in Resources */,
+				73BC6D302C9BB85F007D7989 /* SUIT-Regular.otf in Resources */,
+				73BC6D312C9BB85F007D7989 /* Assets.xcassets in Resources */,
+				73BC6D322C9BB85F007D7989 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +692,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BC6CF62C9BB84A007D7989 /* ContentView.swift in Sources */,
+				73BC6CF72C9BB84A007D7989 /* DimigoMealWatchApp.swift in Sources */,
+				73BC6D022C9BB85A007D7989 /* DateHelper.swift in Sources */,
+				73BC6D142C9BB85D007D7989 /* MealModel.swift in Sources */,
+				73BC6D152C9BB85D007D7989 /* MealModel.xcdatamodeld in Sources */,
+				73BC6D4D2C9BB895007D7989 /* MealView.swift in Sources */,
+				73BC6D162C9BB85D007D7989 /* PersistenceController.swift in Sources */,
+				73BC6D032C9BB85A007D7989 /* EndpointHelper.swift in Sources */,
+				73BC6D562C9BCBB9007D7989 /* StringHelper.swift in Sources */,
+				73BC6D042C9BB85A007D7989 /* MealHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,9 +727,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BC6CFE2C9BB85A007D7989 /* DateHelper.swift in Sources */,
+				73BC6CFF2C9BB85A007D7989 /* EndpointHelper.swift in Sources */,
+				73BC6D552C9BCBB9007D7989 /* StringHelper.swift in Sources */,
+				73BC6D002C9BB85A007D7989 /* LiveActivityHelper.swift in Sources */,
+				73BC6D012C9BB85A007D7989 /* MealHelper.swift in Sources */,
 				FA6EF2652C1F182F00B628CF /* Widget.intentdefinition in Sources */,
 				FA9FA1572C1ED352000EBBF4 /* DimigoMealApp.swift in Sources */,
 				FA6EF0FC2C1EDE4700B628CF /* LiveActivityAttributes.swift in Sources */,
+				73BC6D0F2C9BB85D007D7989 /* EffectModel.swift in Sources */,
+				73BC6D102C9BB85D007D7989 /* MealModel.swift in Sources */,
+				73BC6D112C9BB85D007D7989 /* MealModel.xcdatamodeld in Sources */,
+				73BC6D122C9BB85D007D7989 /* PersistenceController.swift in Sources */,
+				73BC6D132C9BB85D007D7989 /* ThemeModel.swift in Sources */,
+				73BC6D3F2C9BB862007D7989 /* ActivityThemeSettingsView.swift in Sources */,
+				73BC6D402C9BB862007D7989 /* BackgroundThemeSettingsView.swift in Sources */,
+				73BC6D412C9BB862007D7989 /* ColorThemeSettingsView.swift in Sources */,
+				73BC6D422C9BB862007D7989 /* TransformEffectSettingsView.swift in Sources */,
+				73BC6D432C9BB862007D7989 /* BackdropBlurView.swift in Sources */,
+				73BC6D442C9BB862007D7989 /* ContentView.swift in Sources */,
+				73BC6D452C9BB862007D7989 /* MealView.swift in Sources */,
+				73BC6D462C9BB862007D7989 /* SettingsView.swift in Sources */,
+				73BC6D472C9BB862007D7989 /* TriggerButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +758,11 @@
 			files = (
 				FA9FA1F52C1ED4C0000EBBF4 /* LiveActivityBundle.swift in Sources */,
 				FA9FA1F62C1ED4C0000EBBF4 /* LiveActivity.swift in Sources */,
+				73BC6D492C9BB862007D7989 /* WidgetView.swift in Sources */,
+				73BC6D172C9BB85D007D7989 /* ThemeModel.swift in Sources */,
+				73BC6D572C9BCBB9007D7989 /* StringHelper.swift in Sources */,
+				73BC6D182C9BB85D007D7989 /* MealModel.swift in Sources */,
+				73BC6D052C9BB85A007D7989 /* DateHelper.swift in Sources */,
 				FA6EF0FB2C1EDE1400B628CF /* LiveActivityAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,8 +772,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6EF21D2C1F15B800B628CF /* Widget.intentdefinition in Sources */,
+				73BC6D192C9BB85D007D7989 /* ThemeModel.swift in Sources */,
+				73BC6D582C9BCBB9007D7989 /* StringHelper.swift in Sources */,
+				73BC6D1A2C9BB85D007D7989 /* MealModel.swift in Sources */,
+				73BC6D1B2C9BB85D007D7989 /* MealModel.xcdatamodeld in Sources */,
+				73BC6D4A2C9BB862007D7989 /* WidgetView.swift in Sources */,
+				73BC6D1C2C9BB85D007D7989 /* PersistenceController.swift in Sources */,
 				FA9FA1FB2C1ED4D8000EBBF4 /* Widget.swift in Sources */,
 				FA9FA1FC2C1ED4D8000EBBF4 /* WidgetBundle.swift in Sources */,
+				73BC6D062C9BB85A007D7989 /* DateHelper.swift in Sources */,
+				73BC6D072C9BB85A007D7989 /* MealHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,7 +819,7 @@
 		FA6EF27B2C1F18BC00B628CF /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FA6EF27C2C1F18BC00B628CF /* Base */,
+				73935FB62C9BD6B5001C9BE1 /* ko */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -683,7 +834,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DimigoMealWatch/DimigoMealWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 55RQQG4L55;
 				ENABLE_PREVIEWS = YES;
@@ -696,7 +847,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -715,7 +866,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DimigoMealWatch/DimigoMealWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 55RQQG4L55;
 				ENABLE_PREVIEWS = YES;
@@ -728,7 +879,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.isamin.dimigomeal.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -872,6 +1023,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -921,7 +1073,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -935,6 +1087,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -978,7 +1131,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1274,6 +1427,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		73BC6D0A2C9BB85D007D7989 /* MealModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				73BC6D0E2C9BB85D007D7989 /* MealModel.xcdatamodel */,
+			);
+			currentVersion = 73BC6D0E2C9BB85D007D7989 /* MealModel.xcdatamodel */;
+			path = MealModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA9FA14B2C1ED352000EBBF4 /* Project object */;
 }

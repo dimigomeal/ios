@@ -1,5 +1,5 @@
 //
-//  MealView.swift.swift
+//  MealView.swift
 //  DimigoMeal
 //
 //  Created by noViceMin on 2024-06-13.
@@ -19,13 +19,13 @@ struct MealView: View {
                         Image(type == .breakfast ? "BreakfastIcon" : type == .lunch ? "LunchIcon" : "DinnerIcon")
                             .resizable()
                             .frame(width: 32, height: 32)
-                        Text(type == .breakfast ? "아침" : type == .lunch ? "점심" : "저녁")
+                        Text(StringHelper.getTypeString(type))
                             .foregroundColor(Color("Color"))
                             .font(.custom("SUIT-Bold", size: 32))
                         Spacer()
                     }
                     VStack(alignment: .leading, spacing: 12) {
-                        ForEach("\(menu ?? "급식 정보가 없습니다")".components(separatedBy: "/"), id: \.self) { item in
+                        ForEach(StringHelper.getMealArray(menu), id: \.self) { item in
                             HStack {
                                 Text("•")
                                     .foregroundColor(Color("Color"))
@@ -49,3 +49,4 @@ struct MealView: View {
         .frame(maxHeight: .infinity)
     }
 }
+

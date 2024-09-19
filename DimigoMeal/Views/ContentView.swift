@@ -66,12 +66,15 @@ struct ContentView: View {
                         .frame(maxHeight: .infinity)
                         .scrollTargetBehavior(.paging)
                         .onChange(of: offsetIndex) {
+                            if(offsetIndex == -1) { return }
                             scrollProxy.scrollTo(offsetIndex, anchor: .leading)
                             offsetIndex = -1
                         }
                     }
                     HStack(spacing: 16) {
-                        Button(action: previous) {
+                        Button(action: {
+                            update(DateHelper.previousDay(targetDate))
+                        }) {
                             VStack {
                                 Image("Left")
                                     .resizable()
@@ -79,7 +82,9 @@ struct ContentView: View {
                             }
                         }
                         .buttonStyle(TriggerButton())
-                        Button(action: next) {
+                        Button(action: {
+                            update(DateHelper.nextDay(targetDate))
+                        }) {
                             VStack {
                                 Image("Right")
                                     .resizable()
@@ -154,21 +159,12 @@ struct ContentView: View {
     private func today() {
         let current = MealHelper.current(viewContext)
         targetDate = DateHelper.formatToDate(current.date)
-        offsetIndex = MealType.allCases.firstIndex(of: current.type)!
-        update(targetDate)
-    }
-    
-    private func previous() {
-        targetDate = Calendar.current.date(byAdding: .day, value: -1, to: targetDate)!
-        update(targetDate)
-    }
-    
-    private func next() {
-        targetDate = Calendar.current.date(byAdding: .day, value: 1, to: targetDate)!
+        offsetIndex = current.typeIndex
         update(targetDate)
     }
     
     private func update(_ date: Date) {
+        targetDate = date
         self.meal = MealHelper.get(viewContext, DateHelper.format(date))
         
         Task {

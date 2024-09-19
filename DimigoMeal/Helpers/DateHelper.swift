@@ -24,6 +24,11 @@ struct DateHelper {
         return dateFormatter.string(from: date)
     }
     
+    static func formatShortString(_ date: Date) -> String {
+        dateFormatter.dateFormat = "M월 d일 E"
+        return dateFormatter.string(from: date)
+    }
+    
     static func formatToStringFormat(_ date: String) -> String {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from: date) ?? Date()
@@ -34,5 +39,13 @@ struct DateHelper {
     static func formatToDate(_ date: String) -> Date {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: date) ?? Date()
+    }
+    
+    static func nextDay(_ date: Date) -> Date {
+        Calendar.current.date(byAdding: .day, value: 1, to: date)!
+    }
+    
+    static func previousDay(_ date: Date) -> Date {
+        Calendar.current.date(byAdding: .day, value: -1, to: date)!
     }
 }

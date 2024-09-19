@@ -20,6 +20,7 @@ struct MealAPIResponse: Codable {
 
 struct Current: Codable {
     let type: MealType
+    let typeIndex: Int
     let date: String
     let menu: String
 }
