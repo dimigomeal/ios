@@ -73,7 +73,7 @@ struct ContentView: View {
                     }
                     HStack(spacing: 16) {
                         Button(action: {
-                            update(DateHelper.previousDay(targetDate))
+                            targetDate = DateHelper.previousDay(targetDate)
                         }) {
                             VStack {
                                 Image("Left")
@@ -83,7 +83,7 @@ struct ContentView: View {
                         }
                         .buttonStyle(TriggerButton())
                         Button(action: {
-                            update(DateHelper.nextDay(targetDate))
+                            targetDate = DateHelper.nextDay(targetDate)
                         }) {
                             VStack {
                                 Image("Right")
@@ -141,6 +141,9 @@ struct ContentView: View {
                 }
                     .edgesIgnoringSafeArea(.all)
             )
+            .onChange(of: targetDate) {
+                update(targetDate)
+            }
             .onAppear {
                 today()
                 
@@ -160,7 +163,6 @@ struct ContentView: View {
         let current = MealHelper.current(viewContext)
         targetDate = DateHelper.formatToDate(current.date)
         offsetIndex = current.typeIndex
-        update(targetDate)
     }
     
     private func update(_ date: Date) {

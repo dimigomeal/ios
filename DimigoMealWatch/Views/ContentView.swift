@@ -14,17 +14,44 @@ struct ContentView: View {
     @State private var offset = 1
     @State private var meal: MealEntity? = nil
     
+    @State private var dateSheet: Bool = false
+    @State private var todayTrigger: Bool = false
+    
     var body: some View {
         TabView(selection: $offset) {
-            MealView(date: targetDate, type: .breakfast, menu: meal?.breakfast)
-                .tag(0)
-            MealView(date: targetDate, type: .lunch, menu: meal?.lunch)
-                .tag(1)
-            MealView(date: targetDate, type: .dinner, menu: meal?.dinner)
-                .tag(2)
+            MealView(
+                date: targetDate,
+                type: .breakfast,
+                menu: meal?.breakfast,
+                dateSheet: $dateSheet,
+                todayTrigger: $todayTrigger
+            ).tag(0)
+            MealView(
+                date: targetDate,
+                type: .lunch,
+                menu: meal?.lunch,
+                dateSheet: $dateSheet,
+                todayTrigger: $todayTrigger
+            ).tag(1)
+            MealView(
+                date: targetDate,
+                type: .dinner,
+                menu: meal?.dinner,
+                dateSheet: $dateSheet,
+                todayTrigger: $todayTrigger
+            ).tag(2)
+        }
+        .onChange(of: todayTrigger) {
+            today()
+        }
+        .onChange(of: targetDate) {
+            update(targetDate)
         }
         .onAppear {
-            today()
+            todayTrigger.toggle()
+        }
+        .sheet(isPresented: $dateSheet) {
+            PopupView(targetDate: $targetDate, todayTrigger: $todayTrigger)
         }
     }
     
@@ -32,7 +59,6 @@ struct ContentView: View {
         let current = MealHelper.current(viewContext)
         targetDate = DateHelper.formatToDate(current.date)
         offset = current.typeIndex
-        update(targetDate)
     }
     
     private func update(_ date: Date) {
@@ -47,6 +73,37 @@ struct ContentView: View {
             
             if(self.meal == nil) {
                 self.meal = MealHelper.get(viewContext, DateHelper.format(date))
+            }
+        }
+    }
+}
+
+struct PopupView: View {
+    @Binding var targetDate: Date
+    @Binding var todayTrigger: Bool
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            Button(action: {
+                todayTrigger.toggle()
+            }) {
+                Text(DateHelper.formatString(targetDate))
+                    .font(.title3)
+            }
+            .buttonStyle(.plain)
+            Spacer()
+            HStack {
+                Button(action: {
+                    targetDate = DateHelper.previousDay(targetDate)
+                }) {
+                    Text("이전")
+                }
+                Button(action: {
+                    targetDate = DateHelper.nextDay(targetDate)
+                }) {
+                    Text("다음")
+                }
             }
         }
     }

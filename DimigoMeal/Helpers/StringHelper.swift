@@ -40,7 +40,7 @@ struct StringHelper {
             
             components.append(String(menu[lastEndIndex..<menu.endIndex]))
             
-            return components
+            return components.filter { !$0.isEmpty }
         } catch {
             print("Invalid regex pattern")
             return [menu]

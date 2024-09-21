@@ -9,7 +9,7 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct LiveActivity: Widget {
+struct LiveActivityExtension: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: LiveActivityAttributes.self) { context in
             WidgetView(
@@ -34,7 +34,7 @@ struct LiveActivity: Widget {
                     EmptyView()
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    EmptyView()
+                    Text(StringHelper.getMealArray(context.state.menu).joined())
                 }
             } compactLeading: {
                 Image(context.state.type == .breakfast ? "BreakfastIcon" : context.state.type == .lunch ? "LunchIcon" : "DinnerIcon")
@@ -71,8 +71,8 @@ extension LiveActivityAttributes.ContentState {
     }
 }
 
-#Preview("LiveActivity", as: .content, using: LiveActivityAttributes.preview) {
-    LiveActivity()
+#Preview("LiveActivityExtension", as: .content, using: LiveActivityAttributes.preview) {
+    LiveActivityExtension()
 } contentStates: {
     LiveActivityAttributes.ContentState.breakfast
     LiveActivityAttributes.ContentState.lunch

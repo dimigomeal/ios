@@ -12,6 +12,9 @@ struct MealView: View {
     let type: MealType
     let menu: String?
     
+    @Binding var dateSheet: Bool
+    @Binding var todayTrigger: Bool
+    
     var body: some View {
         NavigationStack{
             List {
@@ -22,12 +25,22 @@ struct MealView: View {
             .listStyle(CarouselListStyle())
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text(StringHelper.getTypeString(type))
-                        .font(.title2)
+                    Button(action: {
+                        todayTrigger.toggle()
+                    }) {
+                        Text(StringHelper.getTypeString(type))
+                            .font(.title2)
+                    }
+                    .buttonStyle(.plain)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Text(DateHelper.formatShortString(date))
-                        .font(.subheadline)
+                    Button(action: {
+                        dateSheet.toggle()
+                    }) {
+                        Text(DateHelper.formatShortString(date))
+                            .font(.subheadline)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
         }
