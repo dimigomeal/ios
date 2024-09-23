@@ -165,13 +165,15 @@ struct ContentView: View {
                                             .opacity(Double(max(0, min(1, 1 - snapOffset))))
                                     }
                                 }
-                                .frame(width: width, height: height)
+                                .scaledToFill()
+                                .frame(width: width, height: height, alignment: .bottom)
                                 .ignoresSafeArea()
                             }
                         } else {
                             Image("Dinner")
                                 .resizable()
-                                .frame(width: width, height: height)
+                                .scaledToFill()
+                                .frame(width: width, height: height, alignment: .bottom)
                                 .ignoresSafeArea()
                         }
                     } else {
