@@ -10,6 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     @State private var targetDate = MealHelper.target().date
     @State private var offset = MealHelper.target().typeIndex
@@ -37,57 +38,93 @@ struct ContentView: View {
                             }
                             .buttonStyle(TriggerButton())
                             .frame(maxWidth: .infinity)
-                            NavigationLink(destination: SettingsView()) {
-                                VStack {
-                                    Image("Menu")
-                                        .resizable()
-                                        .frame(width: 32, height: 32)
+                            Group {
+                                NavigationLink(destination: SettingsView()) {
+                                    VStack {
+                                        Image("Menu")
+                                            .resizable()
+                                            .frame(width: 32, height: 32)
+                                    }
+                                }
+                                .buttonStyle(TriggerButton())
+                                if horizontalSizeClass != .compact {
+                                    Button(action: {
+                                        targetDate = DateHelper.previousDay(targetDate)
+                                    }) {
+                                        VStack {
+                                            Image("Left")
+                                                .resizable()
+                                                .frame(width: 32, height: 32)
+                                        }
+                                    }
+                                    .buttonStyle(TriggerButton())
+                                    Button(action: {
+                                        targetDate = DateHelper.nextDay(targetDate)
+                                    }) {
+                                        VStack {
+                                            Image("Right")
+                                                .resizable()
+                                                .frame(width: 32, height: 32)
+                                        }
+                                    }
+                                    .buttonStyle(TriggerButton())
                                 }
                             }
-                            .buttonStyle(TriggerButton())
                             .frame(width: 56)
                         }
                         .padding(.horizontal, 16)
                         TabView(selection: $offset) {
-                            MealView(type: .breakfast, menu: meal?.breakfast)
-                                .tag(0)
-                                .background {
-                                    if !offsetObserver.isObserving {
-                                        FindCollectionView {
-                                            offsetObserver.collectionView = $0
-                                            offsetObserver.observe()
-                                        }
+                            HStack(spacing: -16) {
+                                MealView(type: .breakfast, menu: meal?.breakfast)
+                                    .tag(0)
+                                if horizontalSizeClass != .compact {
+                                    MealView(type: .lunch, menu: meal?.lunch)
+                                        .tag(1)
+                                    MealView(type: .dinner, menu: meal?.dinner)
+                                        .tag(2)
+                                }
+                            }
+                            .background {
+                                if !offsetObserver.isObserving {
+                                    FindCollectionView {
+                                        offsetObserver.collectionView = $0
+                                        offsetObserver.observe()
                                     }
                                 }
-                            MealView(type: .lunch, menu: meal?.lunch)
-                                .tag(1)
-                            MealView(type: .dinner, menu: meal?.dinner)
-                                .tag(2)
+                            }
+                            if horizontalSizeClass == .compact {
+                                MealView(type: .lunch, menu: meal?.lunch)
+                                    .tag(1)
+                                MealView(type: .dinner, menu: meal?.dinner)
+                                    .tag(2)
+                            }
                         }
                         .tabViewStyle(.page(indexDisplayMode: .never))
-                        HStack(spacing: 16) {
-                            Button(action: {
-                                targetDate = DateHelper.previousDay(targetDate)
-                            }) {
-                                VStack {
-                                    Image("Left")
-                                        .resizable()
-                                        .frame(width: 32, height: 32)
+                        if horizontalSizeClass == .compact {
+                            HStack(spacing: 16) {
+                                Button(action: {
+                                    targetDate = DateHelper.previousDay(targetDate)
+                                }) {
+                                    VStack {
+                                        Image("Left")
+                                            .resizable()
+                                            .frame(width: 32, height: 32)
+                                    }
                                 }
-                            }
-                            .buttonStyle(TriggerButton())
-                            Button(action: {
-                                targetDate = DateHelper.nextDay(targetDate)
-                            }) {
-                                VStack {
-                                    Image("Right")
-                                        .resizable()
-                                        .frame(width: 32, height: 32)
+                                .buttonStyle(TriggerButton())
+                                Button(action: {
+                                    targetDate = DateHelper.nextDay(targetDate)
+                                }) {
+                                    VStack {
+                                        Image("Right")
+                                            .resizable()
+                                            .frame(width: 32, height: 32)
+                                    }
                                 }
+                                .buttonStyle(TriggerButton())
                             }
-                            .buttonStyle(TriggerButton())
+                            .padding(.horizontal, 16)
                         }
-                        .padding(.horizontal, 16)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.vertical, 16)
@@ -96,43 +133,52 @@ struct ContentView: View {
                 .background {
                     let snapOffset = max(0, min(2, offsetObserver.offset / width))
                     if backgroundTheme == BackgroundTheme.dynamic {
-                        ZStack {
-                            Group {
-                                switch transformEffect {
-                                case .slide:
-                                    Image("Dinner")
-                                        .resizable()
-                                    Image("Lunch")
-                                        .resizable()
-                                        .mask(
-                                            Rectangle()
-                                                .edgesIgnoringSafeArea(.all)
-                                                .offset(x: UIScreen.main.bounds.width * max(0, min(1, snapOffset - 1)) * -1)
-                                        )
-                                    Image("Breakfast")
-                                        .resizable()
-                                        .mask(
-                                            Rectangle()
-                                                .edgesIgnoringSafeArea(.all)
-                                                .offset(x: UIScreen.main.bounds.width * max(0, min(1, snapOffset)) * -1)
-                                        )
-                                case .fade:
-                                    Image("Dinner")
-                                        .resizable()
-                                    Image("Lunch")
-                                        .resizable()
-                                        .opacity(Double(max(0, min(1, 2 - snapOffset))))
-                                    Image("Breakfast")
-                                        .resizable()
-                                        .opacity(Double(max(0, min(1, 1 - snapOffset))))
+                        if horizontalSizeClass == .compact {
+                            ZStack {
+                                Group {
+                                    switch transformEffect {
+                                    case .slide:
+                                        Image("Dinner")
+                                            .resizable()
+                                        Image("Lunch")
+                                            .resizable()
+                                            .mask(
+                                                Rectangle()
+                                                    .edgesIgnoringSafeArea(.all)
+                                                    .offset(x: width * max(0, min(1, snapOffset - 1)) * -1)
+                                            )
+                                        Image("Breakfast")
+                                            .resizable()
+                                            .mask(
+                                                Rectangle()
+                                                    .edgesIgnoringSafeArea(.all)
+                                                    .offset(x: width * max(0, min(1, snapOffset)) * -1)
+                                            )
+                                    case .fade:
+                                        Image("Dinner")
+                                            .resizable()
+                                        Image("Lunch")
+                                            .resizable()
+                                            .opacity(Double(max(0, min(1, 2 - snapOffset))))
+                                        Image("Breakfast")
+                                            .resizable()
+                                            .opacity(Double(max(0, min(1, 1 - snapOffset))))
+                                    }
                                 }
+                                .frame(width: width, height: height)
+                                .ignoresSafeArea()
                             }
-                            .frame(width: width, height: height)
-                            .ignoresSafeArea()
+                        } else {
+                            Image("Dinner")
+                                .resizable()
+                                .frame(width: width, height: height)
+                                .ignoresSafeArea()
                         }
                     } else {
                         ZStack {
                             Color("Background")
+                                .frame(width: width, height: height)
+                                .ignoresSafeArea()
                         }
                     }
                 }
