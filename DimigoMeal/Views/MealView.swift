@@ -45,8 +45,6 @@ struct MealView: View {
             .background(BackdropBlurView(radius: 48))
         }
         .padding(.horizontal, 16)
-        .frame(width: UIScreen.main.bounds.width)
-        .frame(maxHeight: .infinity)
     }
 }
 

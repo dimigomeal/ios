@@ -58,7 +58,7 @@ struct ContentView: View {
     private func today() {
         let current = MealHelper.current(viewContext)
         targetDate = DateHelper.formatToDate(current.date)
-        offset = current.typeIndex
+        offset = current.target.typeIndex
     }
     
     private func update(_ date: Date) {

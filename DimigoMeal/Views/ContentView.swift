@@ -11,136 +11,136 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var targetDate = Date()
-    @State private var offset = CGFloat.zero
-    @State private var offsetIndex: Int = -1
+    @State private var targetDate = MealHelper.target().date
+    @State private var offset = MealHelper.target().typeIndex
     @State private var meal: MealEntity? = nil
+    
+    @State private var width: CGFloat = UIScreen.main.bounds.width
+    @State private var height: CGFloat = UIScreen.main.bounds.height
     
     @AppStorage("theme/background") private var backgroundTheme = BackgroundTheme.dynamic
     @AppStorage("effect/transform") private var transformEffect = TransformEffect.slide
     
+    var offsetObserver = PageOffsetObserver(offset: UIScreen.main.bounds.width * Double(MealHelper.target().typeIndex))
     var body: some View {
-        NavigationStack {
-            ZStack {
-                VStack(spacing: 16) {
-                    HStack(spacing: 16) {
-                        Button(action: today) {
-                            VStack {
-                                Text("\(DateHelper.formatString(targetDate))")
-                                    .foregroundColor(Color("Color"))
-                                    .font(.custom("SUIT-Bold", size: 20))
-                            }
-                        }
-                        .buttonStyle(TriggerButton())
-                        .frame(maxWidth: .infinity)
-                        NavigationLink(destination: SettingsView()) {
-                            VStack {
-                                Image("Menu")
-                                    .resizable()
-                                    .frame(width: 32, height: 32)
-                            }
-                        }
-                        .buttonStyle(TriggerButton())
-                        .frame(width: 56)
-                    }
-                    .padding(.horizontal, 16)
-                    ScrollViewReader { scrollProxy in
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 0) {
-                                MealView(type: .breakfast, menu: meal?.breakfast)
-                                    .id(0)
-                                MealView(type: .lunch, menu: meal?.lunch)
-                                    .id(1)
-                                MealView(type: .dinner, menu: meal?.dinner)
-                                    .id(2)
-                            }
-                            .background(GeometryReader { proxy -> Color in
-                                DispatchQueue.main.async {
-                                    offset = max(0, min(2, -proxy.frame(in: .named("scroll")).origin.x / UIScreen.main.bounds.width))
-                                }
-                                return Color.clear
-                            })
-                        }
-                        .scrollClipDisabled()
-                        .coordinateSpace(name: "scroll")
-                        .frame(maxHeight: .infinity)
-                        .scrollTargetBehavior(.paging)
-                        .onChange(of: offsetIndex) {
-                            if(offsetIndex == -1) { return }
-                            scrollProxy.scrollTo(offsetIndex, anchor: .leading)
-                            offsetIndex = -1
-                        }
-                    }
-                    HStack(spacing: 16) {
-                        Button(action: {
-                            targetDate = DateHelper.previousDay(targetDate)
-                        }) {
-                            VStack {
-                                Image("Left")
-                                    .resizable()
-                                    .frame(width: 32, height: 32)
-                            }
-                        }
-                        .buttonStyle(TriggerButton())
-                        Button(action: {
-                            targetDate = DateHelper.nextDay(targetDate)
-                        }) {
-                            VStack {
-                                Image("Right")
-                                    .resizable()
-                                    .frame(width: 32, height: 32)
-                            }
-                        }
-                        .buttonStyle(TriggerButton())
-                    }
-                    .padding(.horizontal, 16)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(.vertical, 16)
-                
-            }
-            .background(
+        GeometryReader { geometry in
+            NavigationStack {
                 ZStack {
-                    Color("Background")
-                    backgroundTheme == BackgroundTheme.dynamic ? ZStack {
-                        switch transformEffect {
-                        case .slide:
-                            Group {
-                                Image("Dinner")
-                                    .resizable()
-                                Image("Lunch")
-                                    .resizable()
-                                    .mask(
-                                        Rectangle()
-                                            .edgesIgnoringSafeArea(.all)
-                                            .offset(x: UIScreen.main.bounds.width * max(0, min(1, offset - 1)) * -1)
-                                    )
-                                Image("Breakfast")
-                                    .resizable()
-                                    .mask(
-                                        Rectangle()
-                                            .edgesIgnoringSafeArea(.all)
-                                            .offset(x: UIScreen.main.bounds.width * max(0, min(1, offset)) * -1)
-                                    )
+                    VStack(spacing: 16) {
+                        HStack(spacing: 16) {
+                            Button(action: today) {
+                                VStack {
+                                    Text("\(DateHelper.formatString(targetDate))")
+                                        .foregroundColor(Color("Color"))
+                                        .font(.custom("SUIT-Bold", size: 20))
+                                }
                             }
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                        case .fade:
-                            Group {
-                                Image("Dinner")
-                                    .resizable()
-                                Image("Lunch")
-                                    .resizable()
-                                    .opacity(Double(max(0, min(1, 2 - offset))))
-                                Image("Breakfast")
-                                    .resizable()
-                                    .opacity(Double(max(0, min(1, 1 - offset))))
+                            .buttonStyle(TriggerButton())
+                            .frame(maxWidth: .infinity)
+                            NavigationLink(destination: SettingsView()) {
+                                VStack {
+                                    Image("Menu")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
+                                }
                             }
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                            .buttonStyle(TriggerButton())
+                            .frame(width: 56)
                         }
-                    } : nil
+                        .padding(.horizontal, 16)
+                        TabView(selection: $offset) {
+                            MealView(type: .breakfast, menu: meal?.breakfast)
+                                .tag(0)
+                                .background {
+                                    if !offsetObserver.isObserving {
+                                        FindCollectionView {
+                                            offsetObserver.collectionView = $0
+                                            offsetObserver.observe()
+                                        }
+                                    }
+                                }
+                            MealView(type: .lunch, menu: meal?.lunch)
+                                .tag(1)
+                            MealView(type: .dinner, menu: meal?.dinner)
+                                .tag(2)
+                        }
+                        .tabViewStyle(.page(indexDisplayMode: .never))
+                        HStack(spacing: 16) {
+                            Button(action: {
+                                targetDate = DateHelper.previousDay(targetDate)
+                            }) {
+                                VStack {
+                                    Image("Left")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
+                                }
+                            }
+                            .buttonStyle(TriggerButton())
+                            Button(action: {
+                                targetDate = DateHelper.nextDay(targetDate)
+                            }) {
+                                VStack {
+                                    Image("Right")
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
+                                }
+                            }
+                            .buttonStyle(TriggerButton())
+                        }
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.vertical, 16)
+                    
                 }
-                    .edgesIgnoringSafeArea(.all)
-            )
+                .background {
+                    let snapOffset = max(0, min(2, offsetObserver.offset / width))
+                    if backgroundTheme == BackgroundTheme.dynamic {
+                        ZStack {
+                            Group {
+                                switch transformEffect {
+                                case .slide:
+                                    Image("Dinner")
+                                        .resizable()
+                                    Image("Lunch")
+                                        .resizable()
+                                        .mask(
+                                            Rectangle()
+                                                .edgesIgnoringSafeArea(.all)
+                                                .offset(x: UIScreen.main.bounds.width * max(0, min(1, snapOffset - 1)) * -1)
+                                        )
+                                    Image("Breakfast")
+                                        .resizable()
+                                        .mask(
+                                            Rectangle()
+                                                .edgesIgnoringSafeArea(.all)
+                                                .offset(x: UIScreen.main.bounds.width * max(0, min(1, snapOffset)) * -1)
+                                        )
+                                case .fade:
+                                    Image("Dinner")
+                                        .resizable()
+                                    Image("Lunch")
+                                        .resizable()
+                                        .opacity(Double(max(0, min(1, 2 - snapOffset))))
+                                    Image("Breakfast")
+                                        .resizable()
+                                        .opacity(Double(max(0, min(1, 1 - snapOffset))))
+                                }
+                            }
+                            .frame(width: width, height: height)
+                            .ignoresSafeArea()
+                        }
+                    } else {
+                        ZStack {
+                            Color("Background")
+                        }
+                    }
+                }
+            }
+            .onChange(of: geometry.size) {
+                self.width = geometry.size.width + geometry.safeAreaInsets.leading + geometry.safeAreaInsets.trailing
+                self.height = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
+            }
             .onChange(of: targetDate) {
                 update(targetDate)
             }
@@ -162,7 +162,7 @@ struct ContentView: View {
     private func today() {
         let current = MealHelper.current(viewContext)
         targetDate = DateHelper.formatToDate(current.date)
-        offsetIndex = current.typeIndex
+        offset = current.target.typeIndex
     }
     
     private func update(_ date: Date) {
@@ -183,6 +183,71 @@ struct ContentView: View {
     }
 }
 
+@Observable
+class PageOffsetObserver: NSObject {
+    var collectionView: UICollectionView?
+    var offset: CGFloat = 0
+    
+    init(offset: CGFloat = 0) {
+        self.offset = offset
+        super.init()
+    }
+    
+    deinit {
+        remove()
+    }
+    
+    private(set) var isObserving: Bool = false
+    
+    func observe() {
+        guard !isObserving else { return }
+        collectionView?.addObserver(self, forKeyPath: "contentOffset", context: nil)
+        isObserving = true
+    }
+    
+    func remove() {
+        isObserving = false
+        collectionView?.removeObserver(self, forKeyPath: "contentOffset")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard keyPath == "contentOffset" else { return }
+        if let contentOffset = (object as? UICollectionView)?.contentOffset {
+            offset = contentOffset.x
+        }
+    }
+}
+
+struct FindCollectionView: UIViewRepresentable {
+    var result: (UICollectionView) -> ()
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if let collectionView = view.collectionSuperView {
+                result(collectionView)
+            }
+        }
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        
+    }
+}
+
+extension UIView {
+    var collectionSuperView: UICollectionView? {
+        if let collectionView = superview as? UICollectionView {
+            return collectionView
+        }
+        
+        return superview?.collectionSuperView
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     @AppStorage("theme/color") private var colorTheme = ColorTheme.system
     
@@ -193,6 +258,7 @@ struct ContentView_Previews: PreviewProvider {
             NavigationView {
                 ContentView()
             }
+            .navigationViewStyle(.stack)
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .preferredColorScheme(scheme)
         }

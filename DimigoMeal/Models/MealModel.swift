@@ -5,6 +5,8 @@
 //  Created by noViceMin on 2024-06-13.
 //
 
+import Foundation
+
 enum MealType: String, Codable, CaseIterable {
     case breakfast
     case lunch
@@ -18,11 +20,16 @@ struct MealAPIResponse: Codable {
     let dinner: String
 }
 
-struct Current: Codable {
+struct Target: Codable {
     let type: MealType
     let typeIndex: Int
+    let date: Date
+}
+
+struct Current: Codable {
     let date: String
     let menu: String
+    let target: Target
 }
 
 let dummyMeal = MealAPIResponse(

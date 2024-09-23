@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct MealHelper {
-    static func current(_ viewContext: NSManagedObjectContext) -> Current {
+    static func target() -> Target {
         var targetDate = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.hour, .minute], from: targetDate)
@@ -30,10 +30,17 @@ struct MealHelper {
             targetDate = Calendar.current.date(byAdding: .day, value: 1, to: targetDate)!
         }
         
-        let date = DateHelper.format(targetDate)
+        let typeIndex = MealType.allCases.firstIndex(of: type)!
+        return Target(type: type, typeIndex: typeIndex, date: targetDate)
+    }
+    
+    static func current(_ viewContext: NSManagedObjectContext) -> Current {
+        let target = target()
+        
+        let date = DateHelper.format(target.date)
         var menu = ""
         if let meal = get(viewContext, date) {
-            switch type {
+            switch target.type {
             case .breakfast:
                 menu = meal.breakfast ?? ""
             case .lunch:
@@ -43,9 +50,7 @@ struct MealHelper {
             }
         }
         
-        let typeIndex = MealType.allCases.firstIndex(of: type)!
-        
-        return Current(type: type, typeIndex: typeIndex, date: date, menu: menu)
+        return Current(date: date, menu: menu, target: target)
     }
     
     static func get(_ viewContext: NSManagedObjectContext, _ date: String) -> MealEntity? {

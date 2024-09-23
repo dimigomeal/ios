@@ -70,7 +70,7 @@ struct Provider: IntentTimelineProvider {
 
         let meal = MealHelper.current(viewContext)
         return WidgetData(
-            type: meal.type,
+            type: meal.target.type,
             menu: meal.menu,
             date: meal.date
         )

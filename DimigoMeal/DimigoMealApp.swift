@@ -17,6 +17,7 @@ struct DimigoMealApp: App {
             NavigationView {
                 ContentView()
             }
+            .navigationViewStyle(.stack)
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
             .preferredColorScheme(colorTheme.scheme)
         }

@@ -22,7 +22,7 @@ struct LiveActivityHelper {
         } else {
             let current = MealHelper.current(viewContext)
             let attributes = LiveActivityAttributes(theme: activityTheme)
-            let state = LiveActivityAttributes.ContentState(type: current.type, menu: current.menu, date: current.date)
+            let state = LiveActivityAttributes.ContentState(type: current.target.type, menu: current.menu, date: current.date)
             
             do {
                 let activity = try Activity.request(
