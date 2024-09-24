@@ -192,17 +192,8 @@ struct ContentView: View {
             .onChange(of: targetDate) {
                 update(targetDate)
             }
-            .onAppear {
+            .onAppear() {
                 today()
-                
-                Task {
-                    await LiveActivityHelper.reload(viewContext)
-                }
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                Task {
-                    await LiveActivityHelper.reload(viewContext)
-                }
             }
         }
     }

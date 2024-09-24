@@ -85,11 +85,13 @@ struct SettingsView: View {
                         }
                     }
                     Button(action: {
+                        print("button clicked")
                         Task {
                             if liveActivity {
-                                await LiveActivityHelper.end()
+                                await LiveActivityHelper.disable()
                             } else {
-                                isErrorLiveActivity = !(await LiveActivityHelper.start(viewContext))
+//                                isErrorLiveActivity = !(await LiveActivityHelper.start(viewContext))
+                                await LiveActivityHelper.enable()
                             }
                         }
                     }) {
@@ -174,11 +176,6 @@ struct SettingsView: View {
             }
             .navigationBarTitle("설정")
             .navigationBarTitleDisplayMode(.inline)
-            .onChange(of: activityTheme) {
-                Task {
-                    await LiveActivityHelper.reload(viewContext)
-                }
-            }
         }
     }
     

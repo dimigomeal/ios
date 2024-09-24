@@ -13,6 +13,42 @@ struct LiveActivityHelper {
     @AppStorage("theme/activity") static private var activityTheme = WidgetTheme.dynamic
     @AppStorage("function/liveactivity") static private var liveActivity = false
     @AppStorage("loading/liveactivity") static private var loadingLiveActivity = false
+    @AppStorage("token/liveactivity") static private var tokenLiveActivity = ""
+    
+    static func enable() async {
+        print("enable start")
+        loadingLiveActivity = true
+        let token = await getToken()
+        
+        liveActivity = true
+        loadingLiveActivity = false
+        print("enable end")
+    }
+    
+    static func disable() async {
+        print("disable start")
+        loadingLiveActivity = true
+        
+        //
+        
+        liveActivity = false
+        loadingLiveActivity = false
+        print("disable end")
+    }
+    
+    static private func getToken() async -> String {
+        if tokenLiveActivity == "" {
+            for await token in Activity<LiveActivityAttributes>.pushToStartTokenUpdates {
+                tokenLiveActivity = tokenToString(token)
+                print("New Token: \(tokenLiveActivity)")
+                
+                return tokenLiveActivity
+            }
+        }
+        
+        print("Existing Token: \(tokenLiveActivity)")
+        return tokenLiveActivity
+    }
     
     static func start(_ viewContext: NSManagedObjectContext) async -> Bool {
         loadingLiveActivity = true
